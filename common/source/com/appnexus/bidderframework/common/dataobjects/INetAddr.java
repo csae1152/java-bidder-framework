@@ -1,4 +1,4 @@
-package com.appnexus.bidderframework.common;
+package com.appnexus.bidderframework.common.dataobjects;
 
 /**
  * Created by IntelliJ IDEA.
