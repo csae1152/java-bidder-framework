@@ -1,4 +1,4 @@
-package com.appnexus.bidderframework.common;
+package com.appnexus.bidderframework.common.dataobjects;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +16,7 @@ public class BidRequest {
     private boolean allowExclusive;
     private boolean debugRequested;
     private List<Tag> tags;
-    private Bid bidInfo;
+    private Bid bid;
 
     public Date getTimestamp() {
         return timestamp;
@@ -58,12 +58,12 @@ public class BidRequest {
         this.tags = tags;
     }
 
-    public Bid getBidInfo() {
-        return bidInfo;
+    public Bid getBid() {
+        return bid;
     }
 
-    public void setBidInfo(Bid bidInfo) {
-        this.bidInfo = bidInfo;
+    public void setBid(Bid bid) {
+        this.bid = bid;
     }
 
     @Override
@@ -74,8 +74,8 @@ public class BidRequest {
                 ", allowExclusive=" + allowExclusive +
                 ", debugRequested=" + debugRequested +
                 ", tags=" + tags +
-                ", bidInfo=" + bidInfo +
+                ", bid=" + bid +
                 '}';
     }
-    
+
 }
