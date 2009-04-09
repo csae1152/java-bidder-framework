@@ -14,4 +14,13 @@ public interface IJSonHandler<T> {
 
     public void write(T dataObject, Writer out) throws IOException;
 
+    public void startArray(String currentArrayName);
+
+    void endArray(String currentArrayName);
+
+    void startObject(String currentObjectName);
+
+    void endObject(String currentObjectName);
+
+    void readValue(String currentName, String text);
 }
