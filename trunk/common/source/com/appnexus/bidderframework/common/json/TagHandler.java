@@ -13,6 +13,27 @@ import java.io.IOException;
  * Time: 6:49:17 PM
  */
 public class TagHandler implements IJSonHandler<Tag> {
+
+    public void startArray(String currentArrayName) {
+
+    }
+
+    public void endArray(String currentArrayName) {
+
+    }
+
+    public void startObject(String currentObjectName) {
+
+    }
+
+    public void endObject(String currentObjectName) {
+
+    }
+
+    public void readValue(String currentName, String text) {
+
+    }
+
     public void write(Tag dataObject, Writer writer) throws IOException {
         writer.append("\"id\":").append(String.valueOf(dataObject.getTagID())).append(",").append(IOUtils.LS);
         writer.append("\"auction_id\":").append(String.valueOf(dataObject.getAuctionID())).append(",").append(IOUtils.LS);

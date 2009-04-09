@@ -13,6 +13,30 @@ import java.io.Writer;
  */
 public class BidHandler implements IJSonHandler<Bid> {
 
+    public void write(Bid dataObject, Writer writer) {
+
+    }
+
+    public void startArray(String currentArrayName) {
+
+    }
+
+    public void endArray(String currentArrayName) {
+
+    }
+
+    public void startObject(String currentObjectName) {
+
+    }
+
+    public void endObject(String currentObjectName) {
+
+    }
+
+    public void readValue(String currentName, String text) {
+
+    }
+
     private static ThreadLocal<BidHandler> factoryCache = new ThreadLocal<BidHandler>() {
         public synchronized BidHandler initialValue() {
             return new BidHandler();
@@ -29,9 +53,5 @@ public class BidHandler implements IJSonHandler<Bid> {
 
     public static BidHandler get() {
         return factoryCache.get();
-    }
-
-    public void write(Bid dataObject, Writer writer) {
-
     }
 }

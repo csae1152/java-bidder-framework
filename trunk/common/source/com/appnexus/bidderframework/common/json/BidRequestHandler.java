@@ -42,6 +42,26 @@ public class BidRequestHandler implements IJSonHandler<BidRequest> {
         }
     }
 
+    public void startArray(String currentArrayName) {
+
+    }
+
+    public void endArray(String currentArrayName) {
+
+    }
+
+    public void startObject(String currentObjectName) {
+
+    }
+
+    public void endObject(String currentObjectName) {
+
+    }
+
+    public void readValue(String currentName, String text) {
+
+    }
+
     private static ThreadLocal<BidRequestHandler> factoryCache = new ThreadLocal<BidRequestHandler>() {
         public synchronized BidRequestHandler initialValue() {
             return new BidRequestHandler();
