@@ -1,5 +1,7 @@
 package com.appnexus.bidderframework.common.json;
 
+import com.appnexus.bidderframework.common.ImpBusFormatException;
+
 import java.io.OutputStream;
 import java.io.Writer;
 import java.io.IOException;
@@ -12,15 +14,33 @@ import java.io.IOException;
  */
 public interface IJSonHandler<T> {
 
-    public void write(T dataObject, Writer out) throws IOException;
+    public JSonStAXReader getReader();
 
-    public void startArray(String currentArrayName);
+    public void setReader(JSonStAXReader reader);
 
-    void endArray(String currentArrayName);
+    public void setParentHandler(IJSonHandler<?> parentHandler);
+    
+    public void setDataObject(T dataObject);
 
-    void startObject(String currentObjectName);
+    public T getDataObject();
 
-    void endObject(String currentObjectName);
+    public void write(Writer out) throws IOException;
 
-    void readValue(String currentName, String text);
+    public void startArray(String arrayName);
+
+    void endArray(String arrayName);
+
+    void startObject(String objectName);
+
+    void endObject(String objectName);
+
+    void readValue(String fieldName, String text) throws ImpBusFormatException;
+
+    void startObjectInArray(String arrayName);
+
+    void readValue(String fieldName, int intValue);
+
+    void readValue(String fieldName, float floatValue);
+
+    void readValue(String fieldName, boolean value);
 }

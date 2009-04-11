@@ -11,17 +11,13 @@ import java.io.Writer;
  * Date: Apr 8, 2009
  * Time: 6:26:35 PM
  */
-public class BidHandler implements IJSonHandler<Bid> {
-
-    public void write(Bid dataObject, Writer writer) {
-
+public class BidHandler extends AbstractHandler<Bid> {
+    
+    public void write(Writer writer) {
+        
     }
 
     public void startArray(String currentArrayName) {
-
-    }
-
-    public void endArray(String currentArrayName) {
 
     }
 
@@ -29,11 +25,23 @@ public class BidHandler implements IJSonHandler<Bid> {
 
     }
 
-    public void endObject(String currentObjectName) {
+    public void readValue(String currentName, String text) {
 
     }
 
-    public void readValue(String currentName, String text) {
+    public void startObjectInArray(String fieldName) {
+
+    }
+
+    public void readValue(String fieldName, int intValue) {
+
+    }
+
+    public void readValue(String fieldName, float floatValue) {
+
+    }
+
+    public void readValue(String fieldName, boolean value) {
 
     }
 

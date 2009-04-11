@@ -6,6 +6,8 @@ import org.codehaus.jackson.JsonParseException;
 
 import java.io.InputStream;
 import java.io.IOException;
+import java.io.File;
+import java.io.FileInputStream;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,6 +35,18 @@ public class JSonStAXReaderParserFactory {
     }
 
     /**
+     * Exactly like createReader(InputStream....
+     * Except this uses a File and creates an input stream for you.
+     * @param file
+     * @param initialHandler
+     * @return
+     * @throws IOException
+     */
+    public JSonStAXReader createReader(File file, IJSonHandler initialHandler) throws IOException {
+        InputStream fis = new FileInputStream(file);
+        return createReader(fis, initialHandler);
+    }
+    /**
      * This instantiates the reader that uses an event based like system.
      *
      * To start this puppy up, please invoke the parse() on the reader.
@@ -53,5 +67,5 @@ public class JSonStAXReaderParserFactory {
         reader.setCurrentHandler(initialHandler);
         return reader;
     }
-    
+
 }
