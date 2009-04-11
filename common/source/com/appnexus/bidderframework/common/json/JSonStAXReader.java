@@ -1,5 +1,7 @@
 package com.appnexus.bidderframework.common.json;
 
+import com.appnexus.bidderframework.common.ImpBusFormatException;
+
 import java.io.IOException;
 
 /**
@@ -17,7 +19,7 @@ public interface JSonStAXReader {
      * Throws IOException depending on the parser's underlying implementation
      * @throws IOException
      */
-    public void parse() throws IOException;
+    public void parse() throws IOException, ImpBusFormatException;
 
 
     /**
