@@ -12,12 +12,12 @@ public class Bid {
 
     private String userID;
     private String userAgent;
-    private List<String> acceptedLanguages;
+    private String acceptedLanguages;
     private boolean noFlash;
     private boolean noCookies;
     private Gender gender;
     private int age;
-    private String otherQSData;
+    private String qsData;
     private String ipAddress;
     private String country;
     private String region;
@@ -60,11 +60,11 @@ public class Bid {
         this.userAgent = userAgent;
     }
 
-    public List<String> getAcceptedLanguages() {
+    public String getAcceptedLanguages() {
         return acceptedLanguages;
     }
 
-    public void setAcceptedLanguages(List<String> acceptedLanguages) {
+    public void setAcceptedLanguages(String acceptedLanguages) {
         this.acceptedLanguages = acceptedLanguages;
     }
 
@@ -100,12 +100,12 @@ public class Bid {
         this.age = age;
     }
 
-    public String getOtherQSData() {
-        return otherQSData;
+    public String getQsData() {
+        return qsData;
     }
 
-    public void setOtherQSData(String otherQSData) {
-        this.otherQSData = otherQSData;
+    public void setQsData(String qsData) {
+        this.qsData = qsData;
     }
 
     public String getIpAddress() {
@@ -286,7 +286,7 @@ public class Bid {
                 ", noCookies=" + noCookies +
                 ", gender=" + gender +
                 ", age=" + age +
-                ", otherQSData='" + otherQSData + '\'' +
+                ", otherQSData='" + qsData + '\'' +
                 ", ipAddress='" + ipAddress + '\'' +
                 ", country='" + country + '\'' +
                 ", region='" + region + '\'' +

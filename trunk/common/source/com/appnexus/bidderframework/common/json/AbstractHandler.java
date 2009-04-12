@@ -52,6 +52,16 @@ public abstract class AbstractHandler<T> implements IJSonHandler<T> {
         getReader().setCurrentHandler(nestedHandler);
     }
 
+    public void startArray(String currentArrayName) {
+    }
 
+    public void startObject(String currentObjectName) {
+    }
+
+    public void readValue(String fieldName, boolean value) {
+    }
+
+    public void startObjectInArray(String fieldName) {
+    }
 
 }

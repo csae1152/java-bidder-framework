@@ -2,6 +2,7 @@ package com.appnexus.bidderframework.common.json;
 
 import com.appnexus.bidderframework.common.dataobjects.BidRequest;
 import com.appnexus.bidderframework.common.dataobjects.Tag;
+import com.appnexus.bidderframework.common.dataobjects.Bid;
 import com.appnexus.bidderframework.common.utils.IOUtils;
 
 import java.io.Writer;
@@ -60,21 +61,28 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
         writer.append("}").append(IOUtils.LS);
     }
 
-    public void startArray(String currentArrayName) {
-        if ("tags".equals(currentArrayName)) {
+    public void startArray(String arrayName) {
+        if ("tags".equals(arrayName)) {
             System.out.println("Bid Request Handler: starting tags");
             getDataObject().setTags(new ArrayList <Tag>());
         }
     }
 
-    public void startObject(String currentObjectName) {
+    public void startObject(String objectName) {
+        if ("bid_info".equals(objectName)) {
+            transferControlToNested(this, BidHandler.get(), new Bid());
+        }
     }
-    public void readValue(String fieldName, float floatValue) {
+    
+    public void readValue(String fieldName, float value) {
     }
-    public void readValue(String currentName, String text) {
+
+    public void readValue(String fieldName, String value) {
     }
-    public void readValue(String fieldName, int intValue) {
+
+    public void readValue(String fieldName, int value) {
     }
+
     public void readValue(String fieldName, boolean value) {
         if ("allow_exclusive".equals(fieldName)) {
             getDataObject().setAllowExclusive(value);
@@ -83,13 +91,11 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
         }
     }
 
-
     public void startObjectInArray(String arrayName) {
         if ("tags".equals(arrayName)) {
             Tag tag = new Tag();
             getDataObject().getTags().add(tag);
-            TagHandler th = TagHandler.get();
-            transferControlToNested(this, th, tag);
+            transferControlToNested(this, TagHandler.get(), tag);
         }
     }
 
