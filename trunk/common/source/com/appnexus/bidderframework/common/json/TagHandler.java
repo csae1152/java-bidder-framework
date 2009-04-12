@@ -32,28 +32,35 @@ public class TagHandler extends AbstractHandler<Tag> {
         writer.append("\"id\":").append(String.valueOf(tag.getTagID())).append(",").append(IOUtils.LS);
         writer.append("\"auction_id\":\"").append(tag.getAuctionID()).append("\",").append(IOUtils.LS);
         writer.append("\"size\":\"").append(String.valueOf(tag.getWidth())).append('x').append(String.valueOf(tag.getHeight())).append("\",").append(IOUtils.LS);
-        writer.append("\"position\":\"").append(tag.getPosition()).append("\",");
-        writer.append("\"tag_format\":\"").append(String.valueOf(tag.getTagFormat())).append("\",");
+        writer.append("\"position\":\"").append(tag.getPosition()).append("\",").append(IOUtils.LS);
+        writer.append("\"tag_format\":\"").append(String.valueOf(tag.getTagFormat())).append("\"");
         if (tag.getAdProfileID() > 0) {
-            writer.append("\"ad_profile_id\":").append(String.valueOf(tag.getAdProfileID())).append(",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"ad_profile_id\":").append(String.valueOf(tag.getAdProfileID()));
         }
         if (tag.getReservePrice() > 0) {
-            writer.append("\"reserve_price\":").append(FORMAT_3_PLACES.format(tag.getReservePrice())).append(",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"reserve_price\":").append(FORMAT_3_PLACES.format(tag.getReservePrice()));
         }
         if (tag.getEstimatedMinimumPrice() > 0) {
-            writer.append("\"estimated_minimum_price\":").append(FORMAT_4_PLACES.format(tag.getEstimatedMinimumPrice())).append(",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"estimated_minimum_price\":").append(FORMAT_4_PLACES.format(tag.getEstimatedMinimumPrice()));
         }
         if (tag.getDefaultCreativeID() > 0) {
-            writer.append("\"default_creative_id\":").append(String.valueOf(tag.getDefaultCreativeID())).append(",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"default_creative_id\":").append(String.valueOf(tag.getDefaultCreativeID()));
         }
         if (tag.getCampaign() != null) {
-            writer.append("\"campaign\":\"").append(String.valueOf(tag.getCampaign())).append("\",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"campaign\":\"").append(String.valueOf(tag.getCampaign())).append("\"");
         }
         if (tag.getPlacement() != null) {
-            writer.append("\"placement\":\"").append(String.valueOf(tag.getPlacement())).append("\",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"placement\":\"").append(String.valueOf(tag.getPlacement())).append("\"");
         }
         if (tag.getTagData() != null) {
-            writer.append("\"tag_data\":\"").append(String.valueOf(tag.getTagData())).append("\",").append(IOUtils.LS);
+            writer.append(",").append(IOUtils.LS);
+            writer.append("\"tag_data\":\"").append(String.valueOf(tag.getTagData())).append("\"");
         }
     }
 
