@@ -7,10 +7,17 @@ package com.appnexus.bidderframework.common.dataobjects;
  * Time: 3:51:05 PM
  */
 public enum InventoryClass {
-    BLACKLIST_URL("blacklist"), CLASS_1_URL("class1"), CLASS_2_URL("class2"), CLASS_3_URL("class3");
+    
+    BLACKLIST_URL("blacklist"), CLASS_1_URL("class_1"), CLASS_2_URL("class_2"), CLASS_3_URL("class_3");
 
-    private String name;
-    private InventoryClass(String name) {
-        this.name = name;
+    private final String value;
+    
+    private InventoryClass(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }

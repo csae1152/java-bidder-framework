@@ -34,13 +34,13 @@ public interface IJSonHandler<T> {
 
     void endObject(String objectName);
 
-    void readValue(String fieldName, String text) throws ImpBusFormatException;
-
     void startObjectInArray(String arrayName);
 
-    void readValue(String fieldName, int intValue);
+    void readValue(String fieldName, String value) throws ImpBusFormatException;
 
-    void readValue(String fieldName, float floatValue);
+    void readValue(String fieldName, int value);
+
+    void readValue(String fieldName, float value);
 
     void readValue(String fieldName, boolean value);
 }

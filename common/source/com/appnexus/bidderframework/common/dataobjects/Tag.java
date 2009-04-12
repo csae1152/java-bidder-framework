@@ -19,7 +19,7 @@ public class Tag {
     private int defaultCreativeID;
     private String campaign;
     private String placement;
-    private String otherData;
+    private String tagData;
 
     public int getTagID() {
         return tagID;
@@ -117,12 +117,12 @@ public class Tag {
         this.placement = placement;
     }
 
-    public String getOtherData() {
-        return otherData;
+    public String getTagData() {
+        return tagData;
     }
 
-    public void setOtherData(String otherData) {
-        this.otherData = otherData;
+    public void setTagData(String tagData) {
+        this.tagData = tagData;
     }
 
     @Override
@@ -140,7 +140,7 @@ public class Tag {
                 ", defaultCreativeID=" + defaultCreativeID +
                 ", campaign='" + campaign + '\'' +
                 ", placement='" + placement + '\'' +
-                ", otherData='" + otherData + '\'' +
+                ", otherData='" + tagData + '\'' +
                 '}';
     }
 }

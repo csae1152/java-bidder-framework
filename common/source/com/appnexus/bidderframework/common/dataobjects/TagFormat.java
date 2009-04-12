@@ -8,6 +8,15 @@ package com.appnexus.bidderframework.common.dataobjects;
  */
 public enum TagFormat {
 
-    TAG_IFRAME, TAG_JS
+    TAG_IFRAME("iframe"), TAG_JS("javascript");
+    private final String value;
 
+    TagFormat(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }

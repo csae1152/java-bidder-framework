@@ -29,7 +29,15 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
         this.parser = parser;
     }
 
-    public void parseRecursively(String fieldName, String parentObjectName, boolean isArray) throws IOException, ImpBusFormatException {
+    public void parse() throws IOException, ImpBusFormatException {
+        parseRecursively("start", "start", false);
+    }
+
+    public void setCurrentHandler(IJSonHandler currentHandler) {
+        this.currentHandler = currentHandler;
+    }
+    
+    private void parseRecursively(String fieldName, String parentObjectName, boolean isArray) throws IOException, ImpBusFormatException {
         if (currentHandler == null) {
             throw new IllegalStateException("The IJSonHandler cannot be null, please ensure this is set before parsing");
         }
@@ -125,11 +133,4 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
         }
     }
 
-    public void parse() throws IOException, ImpBusFormatException {
-        parseRecursively("start", "start", false);
-    }
-
-    public void setCurrentHandler(IJSonHandler currentHandler) {
-        this.currentHandler = currentHandler;
-    }
 }
