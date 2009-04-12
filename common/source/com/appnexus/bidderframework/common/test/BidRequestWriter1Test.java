@@ -3,6 +3,8 @@ package com.appnexus.bidderframework.common.test;
 import org.junit.Test;
 import com.appnexus.bidderframework.common.dataobjects.BidRequest;
 import com.appnexus.bidderframework.common.dataobjects.Tag;
+import com.appnexus.bidderframework.common.dataobjects.Bid;
+import com.appnexus.bidderframework.common.dataobjects.LucidInfo;
 import com.appnexus.bidderframework.common.json.JSonWriter;
 import com.appnexus.bidderframework.common.json.JSonStAXReaderParserFactory;
 import com.appnexus.bidderframework.common.json.IJSonHandler;
@@ -42,6 +44,13 @@ public class BidRequestWriter1Test {
         tag.setTagID(24);
         tag.setWidth(100);
         tag.setHeight(3700);
+        Bid bid = new Bid();
+        bidRequest.setBid(bid);
+        bid.setAcceptedLanguages("EN");
+        bid.setAge(21);
+        bid.setCity("New Rochelle");
+        bid.setUserID("Samuel L. Bronkowitz");
+        bid.setLucidInfo(new LucidInfo());
 
         JSonWriter writer = new JSonWriter();
         writer.writeBidRequest(bidRequest, new File("BidRequestWriter1.jsn"));
