@@ -31,8 +31,7 @@ public class Bid {
 
     private InventoryClass inventoryClass;
     private boolean withinIFrame;
-    private int lucidLevel;
-    private LucidInfo lucidInfo;
+    private LucidData lucidData;
     private String dataranJSON;
     private IXIData ixiData;
     private List<Segment> segments;
@@ -188,20 +187,12 @@ public class Bid {
         this.withinIFrame = withinIFrame;
     }
 
-    public int getLucidLevel() {
-        return lucidLevel;
+    public LucidData getLucidData() {
+        return lucidData;
     }
 
-    public void setLucidLevel(int lucidLevel) {
-        this.lucidLevel = lucidLevel;
-    }
-
-    public LucidInfo getLucidInfo() {
-        return lucidInfo;
-    }
-
-    public void setLucidInfo(LucidInfo lucidInfo) {
-        this.lucidInfo = lucidInfo;
+    public void setLucidData(LucidData lucidData) {
+        this.lucidData = lucidData;
     }
 
     public String getDataranJSON() {
@@ -297,8 +288,7 @@ public class Bid {
                 ", url='" + url + '\'' +
                 ", inventoryClass=" + inventoryClass +
                 ", withinIFrame=" + withinIFrame +
-                ", lucidLevel=" + lucidLevel +
-                ", lucidInfo=" + lucidInfo +
+                ", lucidInfo=" + lucidData +
                 ", dataranJSON='" + dataranJSON + '\'' +
                 ", ixiData=" + ixiData +
                 ", segments=" + segments +

@@ -63,5 +63,4 @@ public abstract class AbstractHandler<T> implements IJSonHandler<T> {
 
     public void startObjectInArray(String fieldName) {
     }
-
 }

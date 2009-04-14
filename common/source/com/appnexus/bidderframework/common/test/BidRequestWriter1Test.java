@@ -4,7 +4,7 @@ import org.junit.Test;
 import com.appnexus.bidderframework.common.dataobjects.BidRequest;
 import com.appnexus.bidderframework.common.dataobjects.Tag;
 import com.appnexus.bidderframework.common.dataobjects.Bid;
-import com.appnexus.bidderframework.common.dataobjects.LucidInfo;
+import com.appnexus.bidderframework.common.dataobjects.LucidData;
 import com.appnexus.bidderframework.common.json.JSonWriter;
 import com.appnexus.bidderframework.common.json.JSonStAXReaderParserFactory;
 import com.appnexus.bidderframework.common.json.IJSonHandler;
@@ -50,7 +50,7 @@ public class BidRequestWriter1Test {
         bid.setAge(21);
         bid.setCity("New Rochelle");
         bid.setUserID("Samuel L. Bronkowitz");
-        bid.setLucidInfo(new LucidInfo());
+        bid.setLucidData(new LucidData());
 
         JSonWriter writer = new JSonWriter();
         writer.writeBidRequest(bidRequest, new File("BidRequestWriter1.jsn"));
@@ -59,7 +59,7 @@ public class BidRequestWriter1Test {
     @Test
     public void testReading() throws IOException, ImpBusFormatException {
         JSonStAXReaderParserFactory factory = new JSonStAXReaderParserFactory();
-        IJSonHandler<BidRequest> handler = new BidRequestHandler();
+        IJSonHandler<BidRequest> handler = BidRequestHandler.get();
         BidRequest dataObject = new BidRequest();
         handler.setDataObject(dataObject);
         JSonStAXReader reader = factory.createReader(new File("BidRequestWriter1.jsn"), handler);
