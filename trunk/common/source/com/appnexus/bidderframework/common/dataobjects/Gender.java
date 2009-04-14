@@ -1,5 +1,8 @@
 package com.appnexus.bidderframework.common.dataobjects;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Ira Klotzko
@@ -9,9 +12,19 @@ package com.appnexus.bidderframework.common.dataobjects;
 public enum Gender {
     FEMALE("female"), MALE("male"), GENDER_UNKNOWN("unknown");
     private final String value;
+    private static Map<String, Gender> STRING_GENDER_MAP = new HashMap<String, Gender>();
+    static {
+        STRING_GENDER_MAP.put("female", FEMALE);
+        STRING_GENDER_MAP.put("male", MALE);
+        STRING_GENDER_MAP.put("unknown", GENDER_UNKNOWN);
+    }
 
     Gender(String value) {
         this.value = value;
+    }
+
+    public static Gender getForString(String value) {
+        return STRING_GENDER_MAP.get(value);
     }
 
     @Override

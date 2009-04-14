@@ -5,6 +5,7 @@ import com.appnexus.bidderframework.common.ImpBusFormatException;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.io.IOException;
+import java.text.ParseException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,7 +37,7 @@ public interface IJSonHandler<T> {
 
     void startObjectInArray(String arrayName);
 
-    void readValue(String fieldName, String value) throws ImpBusFormatException;
+    void readValue(String fieldName, String value) throws ImpBusFormatException, ParseException;
 
     void readValue(String fieldName, int value);
 
