@@ -1,0 +1,40 @@
+<project name="bidder-build" default="dist" basedir=".">
+
+    <property name="src" location="source" />
+    <property name="build" location="classes" />
+    <property name="dist" location="dist" />
+    <property name="lib" location="lib" />
+
+
+    <path id="jars.path">
+        <path location="${lib}/jackson-core-asl-0.9.9-3.jar" />
+        <path location="${lib}/junit-4.5.jar" />
+        <path location="${lib}/log4j-1.2.15.jar" />
+    </path>
+
+    <target  name="init" description="creates the classes directory if not already done so">
+        <mkdir dir="${build}" />
+    </target>
+
+    <target name="dist" depends="compile"
+            description="jars up the classes in the classes directory,
+                         and copies them over and the jars into the dist directory">
+        <mkdir dir="${dist}" />
+        <copy todir="${dist}" flatten="true">
+            <path refid="jars.path" />
+        </copy>
+        <jar jarfile="${dist}/bidder-framework.jar" basedir="${build}"/>
+
+    </target>
+
+    <target  name="compile" depends="init" description="compiles the source code into the classes directory">
+        <javac  srcdir="${src}" destdir="${build}">
+            <classpath refid="jars.path" />
+        </javac>
+    </target>
+
+    <target name="clean" description="cleans the classes and dist directories">
+        <delete  dir="${build}" />
+        <delete  dir="${dist}" />
+    </target>
+</project>
