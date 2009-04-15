@@ -37,7 +37,7 @@ public interface IJSonHandler<T> {
 
     void startObjectInArray(String arrayName);
 
-    void readValue(String fieldName, String value) throws ImpBusFormatException, ParseException;
+    void readValue(String fieldName, String value) throws ImpBusFormatException;
 
     void readValue(String fieldName, int value);
 

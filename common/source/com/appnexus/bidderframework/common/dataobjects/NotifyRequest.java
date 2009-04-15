@@ -1,0 +1,77 @@
+package com.appnexus.bidderframework.common.dataobjects;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: Ira Klotzko
+ * Date: Apr 15, 2009
+ * Time: 11:55:53 AM
+ */
+public class NotifyRequest {
+
+    private Date timestamp;
+    private boolean fail;
+    private String error;
+    private int response_time; // milliseconds
+    private Bid bid; // only for full notify
+    private List<NotifyTag> notifyTags;
+    private Tag tag; // only in full notify
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public boolean isFail() {
+        return fail;
+    }
+
+    public void setFail(boolean fail) {
+        this.fail = fail;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public int getResponse_time() {
+        return response_time;
+    }
+
+    public void setResponse_time(int response_time) {
+        this.response_time = response_time;
+    }
+
+    public Bid getBid() {
+        return bid;
+    }
+
+    public void setBid(Bid bid) {
+        this.bid = bid;
+    }
+
+    public List<NotifyTag> getNotifyTags() {
+        return notifyTags;
+    }
+
+    public void setNotifyTags(List<NotifyTag> notifyTags) {
+        this.notifyTags = notifyTags;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
+}
