@@ -5,7 +5,6 @@ package com.appnexus.bidderframework.common.dataobjects;
  * User: Ira Klotzko
  * Date: Apr 13, 2009
  * Time: 11:43:02 AM
- * @deprecated
  */
 public class Datran {
 

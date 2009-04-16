@@ -22,6 +22,18 @@ public class MemberHandler extends AbstractHandler<Member> {
         writer.append("\"id:\"").append(String.valueOf(memberID));
     }
 
+    public void startArray(String arrayName) {
+
+    }
+
+    public void startObject(String objectName) {
+
+    }
+
+    public void startObjectInArray(String arrayName) {
+
+    }
+
     public void readValue(String fieldName, String value) throws ImpBusFormatException {
 
     }
@@ -33,6 +45,10 @@ public class MemberHandler extends AbstractHandler<Member> {
     }
 
     public void readValue(String fieldName, float value) {
+
+    }
+
+    public void readValue(String fieldName, boolean value) {
 
     }
 

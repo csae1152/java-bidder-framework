@@ -14,7 +14,7 @@ public class NotifyRequest {
     private Date timestamp;
     private boolean fail;
     private String error;
-    private int response_time; // milliseconds
+    private int responseTime; // milliseconds
     private Bid bid; // only for full notify
     private List<NotifyTag> notifyTags;
     private Tag tag; // only in full notify
@@ -43,12 +43,12 @@ public class NotifyRequest {
         this.error = error;
     }
 
-    public int getResponse_time() {
-        return response_time;
+    public int getResponseTime() {
+        return responseTime;
     }
 
-    public void setResponse_time(int response_time) {
-        this.response_time = response_time;
+    public void setResponseTime(int responseTime) {
+        this.responseTime = responseTime;
     }
 
     public Bid getBid() {

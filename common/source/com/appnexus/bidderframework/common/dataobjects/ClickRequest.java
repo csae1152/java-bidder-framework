@@ -12,6 +12,7 @@ public class ClickRequest {
 
     private Date timestamp;
     private String auctionID;
+    private String userID;
     private int memberID;
     private String referrerURL;
     private String userAgent;
@@ -81,5 +82,13 @@ public class ClickRequest {
 
     public void setCustomNotifyData(String customNotifyData) {
         this.customNotifyData = customNotifyData;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

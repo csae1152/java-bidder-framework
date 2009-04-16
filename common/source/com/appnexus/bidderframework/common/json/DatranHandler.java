@@ -1,7 +1,6 @@
 package com.appnexus.bidderframework.common.json;
 
 import com.appnexus.bidderframework.common.dataobjects.Datran;
-import com.appnexus.bidderframework.common.utils.IOUtils;
 import com.appnexus.bidderframework.common.ImpBusFormatException;
 
 import java.io.Writer;
@@ -18,10 +17,26 @@ public class DatranHandler extends AbstractHandler<Datran> {
     public void write(Writer writer) throws IOException {
     }
 
+    public void startArray(String arrayName) {
+
+    }
+
+    public void startObject(String objectName) {
+
+    }
+
+    public void startObjectInArray(String arrayName) {
+
+    }
+
     public void readValue(String fieldName, int value) {
     }
 
     public void readValue(String fieldName, float value) {
+    }
+
+    public void readValue(String fieldName, boolean value) {
+
     }
 
     public void readValue(String fieldName, String value) throws ImpBusFormatException {

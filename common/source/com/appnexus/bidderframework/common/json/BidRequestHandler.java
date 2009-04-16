@@ -87,6 +87,18 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
         }
     }
 
+    public void startObjectInArray(String arrayName) {
+        if ("tags".equals(arrayName)) {
+            Tag tag = new Tag();
+            getDataObject().getTags().add(tag);
+            transferControlToNested(this, TagHandler.get(), tag);
+        } else if ("members".equals(arrayName)) {
+            Member member = new Member();
+            getDataObject().getMembers().add(member);
+            transferControlToNested(this, MemberHandler.get(), member);
+        }
+    }
+
     public void startObject(String objectName) {
         BidRequest br = getDataObject();
         if ("bid_info".equals(objectName)) {
@@ -116,18 +128,6 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
             getDataObject().setAllowExclusive(value);
         } else if ("debug_requested".equals(fieldName)) {
             getDataObject().setDebugRequested(value);
-        }
-    }
-
-    public void startObjectInArray(String arrayName) {
-        if ("tags".equals(arrayName)) {
-            Tag tag = new Tag();
-            getDataObject().getTags().add(tag);
-            transferControlToNested(this, TagHandler.get(), tag);
-        } else if ("members".equals(arrayName)) {
-            Member member = new Member();
-            getDataObject().getMembers().add(member);
-            transferControlToNested(this, MemberHandler.get(), member);
         }
     }
 

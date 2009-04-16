@@ -64,6 +64,18 @@ public class TagHandler extends AbstractHandler<Tag> {
         }
     }
 
+    public void startArray(String arrayName) {
+
+    }
+
+    public void startObject(String objectName) {
+
+    }
+
+    public void startObjectInArray(String arrayName) {
+
+    }
+
     public void readValue(String fieldName, int value) {
         if ("id".equals(fieldName)) {
             getDataObject().setTagID(value);
@@ -80,6 +92,10 @@ public class TagHandler extends AbstractHandler<Tag> {
         } else if ("estimated_minimum_price".equals(fieldName)) {
             getDataObject().setEstimatedMinimumPrice(value);
         }
+    }
+
+    public void readValue(String fieldName, boolean value) {
+
     }
 
     public void readValue(String fieldName, String value) throws ImpBusFormatException {

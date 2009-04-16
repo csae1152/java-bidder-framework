@@ -28,6 +28,18 @@ public class IXIDataHandler extends AbstractHandler<IXIData> {
         writer.append("\"income360_decile\":").append(String.valueOf(ixi.getIncome360Decile())).append("").append(IOUtils.LS);
     }
 
+    public void startArray(String arrayName) {
+
+    }
+
+    public void startObject(String objectName) {
+
+    }
+
+    public void startObjectInArray(String arrayName) {
+
+    }
+
     public void readValue(String fieldName, String value) throws ImpBusFormatException {
         if ("zip_plus_four".equals(fieldName)) {
             if (value != null && value.trim().length() > 0) {
@@ -53,6 +65,10 @@ public class IXIDataHandler extends AbstractHandler<IXIData> {
     }
 
     public void readValue(String fieldName, float value) {
+
+    }
+
+    public void readValue(String fieldName, boolean value) {
 
     }
 
