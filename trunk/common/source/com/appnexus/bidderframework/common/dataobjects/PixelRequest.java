@@ -13,6 +13,8 @@ public class PixelRequest {
     private Date timestamp;
     private String queryString;
     private int memberID;
+    private String userID;
+    private String userData;
     private int pixelID;
     private String ipAddress;
     private String userAgent;
@@ -72,5 +74,21 @@ public class PixelRequest {
 
     public void setRedirectURL(String redirectURL) {
         this.redirectURL = redirectURL;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getUserData() {
+        return userData;
+    }
+
+    public void setUserData(String userData) {
+        this.userData = userData;
     }
 }

@@ -1,5 +1,7 @@
 package com.appnexus.bidderframework.common.dataobjects;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Ira Klotzko
@@ -11,24 +13,16 @@ public class LucidData {
     public static final String LUCID_ID_PREFIX = "dc";
     public static final int LUCID_NUMBER_CATEGORIES = 5;
     private int lucidLevel;
-    private long[] dc;
-    private String[] categories;
 
-    public long[] getDc() {
-        return dc;
+    public List<LucidLevelData> getLucidLevels() {
+        return lucidLevels;
     }
 
-    public void setDc(long[] dc) {
-        this.dc = dc;
+    public void setLucidLevels(List<LucidLevelData> lucidLevels) {
+        this.lucidLevels = lucidLevels;
     }
 
-    public String[] getCategories() {
-        return categories;
-    }
-
-    public void setCategories(String[] categories) {
-        this.categories = categories;
-    }
+    private List<LucidLevelData> lucidLevels;
 
     public int getLucidLevel() {
         return lucidLevel;

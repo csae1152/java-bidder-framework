@@ -32,6 +32,18 @@ public class SegmentHandler extends AbstractHandler<Segment> {
         writer.append("\"provider\":\"").append(seg.getProvider()).append("\"").append(IOUtils.LS);
     }
 
+    public void startArray(String arrayName) {
+
+    }
+
+    public void startObject(String objectName) {
+
+    }
+
+    public void startObjectInArray(String arrayName) {
+
+    }
+
     public void readValue(String fieldName, String value) throws ImpBusFormatException {
         if ("shortname".equals(fieldName)) {
             getDataObject().setShortname(value);
@@ -54,6 +66,10 @@ public class SegmentHandler extends AbstractHandler<Segment> {
         if ("price".equals(fieldName)) {
             getDataObject().setPrice(value);
         }
+    }
+
+    public void readValue(String fieldName, boolean value) {
+
     }
 
     private static ThreadLocal<SegmentHandler> factoryCache = new ThreadLocal<SegmentHandler>() {
