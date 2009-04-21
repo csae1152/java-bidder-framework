@@ -1,6 +1,7 @@
 package com.appnexus.bidderframework.common.json;
 
 import com.appnexus.bidderframework.common.ImpBusFormatException;
+import com.appnexus.bidderframework.common.ImpBusInvalidDataException;
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -25,7 +26,7 @@ public interface IJSonHandler<T> {
 
     public T getDataObject();
 
-    public void write(Writer out) throws IOException;
+    public void write(Writer out) throws IOException, ImpBusInvalidDataException;
 
     public void startArray(String arrayName);
 
