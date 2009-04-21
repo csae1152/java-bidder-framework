@@ -11,7 +11,6 @@ import java.io.IOException;
  * User: Ira Klotzko
  * Date: Apr 13, 2009
  * Time: 11:44:11 AM
- * @deprecated
  */
 public class DatranHandler extends AbstractHandler<Datran> {
     public void write(Writer writer) throws IOException {
