@@ -1,6 +1,7 @@
 package com.appnexus.bidderframework.common.test;
 
 import org.junit.Test;
+import org.junit.Assert;
 import com.appnexus.bidderframework.common.dataobjects.BidRequest;
 import com.appnexus.bidderframework.common.dataobjects.Tag;
 import com.appnexus.bidderframework.common.dataobjects.Bid;
@@ -26,48 +27,41 @@ import java.io.IOException;
 public class BidRequestWriter1Test {
 
     @Test
-    public void testWriting() throws IOException {
-        BidRequest bidRequest = new BidRequest();
-        bidRequest.setAllowExclusive(true);
-        bidRequest.setDebugRequested(false);
-        List<Tag> tags = new ArrayList<Tag>();
-        bidRequest.setTags(tags);
-        Tag tag = new Tag();
-        tags.add(tag);
-        tag.setAuctionID("going once, going twice sold to the lady in the purple dress");
-        tag.setTagID(42);
-        tag.setWidth(3700);
-        tag.setHeight(100);
-        tag = new Tag();
-        tags.add(tag);
-        tag.setAuctionID("going thrice, going frice sold to the gentlemen in the black overcoat");
-        tag.setTagID(24);
-        tag.setWidth(100);
-        tag.setHeight(3700);
-        Bid bid = new Bid();
-        bidRequest.setBid(bid);
-        bid.setAcceptedLanguages("EN");
-        bid.setAge(21);
-        bid.setCity("New Rochelle");
-        bid.setUserID("Samuel L. Bronkowitz");
-        bid.setLucidData(new LucidData());
+    public void testMirroringBidRequests() throws IOException, ImpBusFormatException {
+        BidRequest[] brs = getOriginalAndMirroredBidRequest("bid_request.json.txt");
+        Assert.assertEquals("bid_request.json.txt failed", brs[0], brs[1]);
 
-        JSonWriter writer = new JSonWriter();
-        writer.writeBidRequest(bidRequest, new File("BidRequestWriter1.jsn"));
+        brs = getOriginalAndMirroredBidRequest("bid_request2.json.txt");
+        Assert.assertEquals("bid_request2.json.txt failed", brs[0], brs[1]);
+    }
+    
+    private BidRequest[] getOriginalAndMirroredBidRequest(String fileName) throws IOException, ImpBusFormatException {
+        BidRequest obr = getBidRequest(fileName);
+        writeBidRequest(obr, fileName + ".mirrored", false);
+        BidRequest nbr = getBidRequest(fileName + ".mirrored");
+        return new BidRequest[] {obr, nbr};
     }
 
-    @Test
-    public void testReading() throws IOException, ImpBusFormatException {
+    private BidRequest getBidRequest(String fileName) throws IOException, ImpBusFormatException {
         JSonStAXReaderParserFactory factory = new JSonStAXReaderParserFactory();
         IJSonHandler<BidRequest> handler = BidRequestHandler.get();
         BidRequest dataObject = new BidRequest();
         handler.setDataObject(dataObject);
-        JSonStAXReader reader = factory.createReader(new File("BidRequestWriter1.jsn"), handler);
+        JSonStAXReader reader = factory.createReader(new File(fileName), handler);
         handler.setReader(reader);
         reader.parse();
-
-        JSonWriter writer = new JSonWriter();
-        writer.writeBidRequest(dataObject, new File("BidRequestWriterMirrored.jsn"));
-
+        return dataObject;
     }
+
+    @SuppressWarnings({"ResultOfMethodCallIgnored"})
+    private void writeBidRequest(BidRequest dataObject, String fileName, boolean deleteOnExit) throws IOException {
+        JSonWriter writer = new JSonWriter();
+        File fileToWrite = new File(fileName);
+        fileToWrite.createNewFile();
+        writer.writeBidRequest(dataObject, fileToWrite);
+        if (deleteOnExit) {
+            fileToWrite.deleteOnExit();
+        }
+    }
+    
 }

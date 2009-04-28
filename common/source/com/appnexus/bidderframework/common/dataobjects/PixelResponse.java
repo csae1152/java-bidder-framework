@@ -55,4 +55,31 @@ public class PixelResponse {
     public void setSegmentsRemove(List<Segment> segmentsRemove) {
         this.segmentsRemove = segmentsRemove;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PixelResponse)) return false;
+
+        PixelResponse that = (PixelResponse) o;
+
+        if (redirectURL != null ? !redirectURL.equals(that.redirectURL) : that.redirectURL != null) return false;
+        if (segmentsAdd != null ? !segmentsAdd.equals(that.segmentsAdd) : that.segmentsAdd != null) return false;
+        if (segmentsRemove != null ? !segmentsRemove.equals(that.segmentsRemove) : that.segmentsRemove != null)
+            return false;
+        if (userData != null ? !userData.equals(that.userData) : that.userData != null) return false;
+        if (userDataJS != null ? !userDataJS.equals(that.userDataJS) : that.userDataJS != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userData != null ? userData.hashCode() : 0;
+        result = 31 * result + (userDataJS != null ? userDataJS.hashCode() : 0);
+        result = 31 * result + (redirectURL != null ? redirectURL.hashCode() : 0);
+        result = 31 * result + (segmentsAdd != null ? segmentsAdd.hashCode() : 0);
+        result = 31 * result + (segmentsRemove != null ? segmentsRemove.hashCode() : 0);
+        return result;
+    }
 }

@@ -28,7 +28,7 @@ public class BidHandler extends AbstractHandler<Bid> {
         writer.append("\"user_id\":\"").append(bid.getUserID()).append("\"");
         if (bid.getUserAgent() != null) {
             writer.append(",").append(IOUtils.LS);
-            writer.append("\"user_agent\":\"").append(IOUtils.encodeEscapeChars(bid.getUserID())).append("\"");
+            writer.append("\"user_agent\":\"").append(IOUtils.encodeEscapeChars(bid.getUserAgent())).append("\"");
         }
         if (bid.getAcceptedLanguages() != null) {
             writer.append(",").append(IOUtils.LS);
@@ -127,7 +127,7 @@ public class BidHandler extends AbstractHandler<Bid> {
             writer.append(",").append(IOUtils.LS);
             writer.append("\"userdata_json\":\"").append(IOUtils.encodeEscapeChars(bid.getUserData())).append("\"").append(IOUtils.LS);
         }
-        if (bid.isNoCookies()) {
+        if (!bid.isNoCookies()) {
             writer.append(",").append(IOUtils.LS);
             writer.append("\"total_imps\":").append(String.valueOf(bid.getTotalImpressionCount()));
             writer.append(",").append(IOUtils.LS);

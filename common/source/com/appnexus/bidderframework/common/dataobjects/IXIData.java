@@ -69,4 +69,33 @@ public class IXIData {
     public void setProvider(int provider) {
         this.provider = (byte) (provider + Byte.MIN_VALUE);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof IXIData)) return false;
+
+        IXIData ixiData = (IXIData) o;
+
+        if (dsiDecile != ixiData.dsiDecile) return false;
+        if (espectrumFull != ixiData.espectrumFull) return false;
+        if (income360Decile != ixiData.income360Decile) return false;
+        if (provider != ixiData.provider) return false;
+        if (zipPlus4 != ixiData.zipPlus4) return false;
+        if (internetAddress != null ? !internetAddress.equals(ixiData.internetAddress) : ixiData.internetAddress != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = internetAddress != null ? internetAddress.hashCode() : 0;
+        result = 31 * result + zipPlus4;
+        result = 31 * result + (int) espectrumFull;
+        result = 31 * result + (int) dsiDecile;
+        result = 31 * result + (int) income360Decile;
+        result = 31 * result + (int) provider;
+        return result;
+    }
 }
