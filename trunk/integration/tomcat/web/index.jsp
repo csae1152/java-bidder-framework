@@ -7,6 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head><title>Simple jsp page</title></head>
-  <body>Place your content here</body>
+  <head><title></title></head>
+  <body>
+
+  <form action="sendInRequest">
+
+      Please send in the request
+      <textarea rows="20" cols="20" id="json-in"></textarea>
+
+  </form>
+
+  </body>
 </html>

@@ -23,8 +23,9 @@ public class TagHandler extends AbstractHandler<Tag> {
     private TagHandler() {
         FORMAT_3_PLACES = NumberFormat.getInstance();
         FORMAT_3_PLACES.setMaximumFractionDigits(3);
+        FORMAT_3_PLACES.setMinimumFractionDigits(3);
         FORMAT_4_PLACES = NumberFormat.getInstance();
-        FORMAT_4_PLACES.setMaximumFractionDigits(4);
+        FORMAT_4_PLACES.setMinimumFractionDigits(4);
     }
 
     public void write(Writer writer) throws IOException {

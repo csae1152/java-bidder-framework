@@ -181,4 +181,66 @@ public class TagResponse {
     public void setPixelType(PixelType pixelType) {
         this.pixelType = pixelType;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TagResponse)) return false;
+
+        TagResponse that = (TagResponse) o;
+
+        if (Double.compare(that.bidderMinimumCPM, bidderMinimumCPM) != 0) return false;
+        if (Double.compare(that.bidderRevShare, bidderRevShare) != 0) return false;
+        if (creativeID != that.creativeID) return false;
+        if (exclusive != that.exclusive) return false;
+        if (memberID != that.memberID) return false;
+        if (noBid != that.noBid) return false;
+        if (noPriceReduction != that.noPriceReduction) return false;
+        if (Double.compare(that.price, price) != 0) return false;
+        if (auctionID != null ? !auctionID.equals(that.auctionID) : that.auctionID != null) return false;
+        if (buyerCurrency != null ? !buyerCurrency.equals(that.buyerCurrency) : that.buyerCurrency != null)
+            return false;
+        if (clickURL != null ? !clickURL.equals(that.clickURL) : that.clickURL != null) return false;
+        if (creativeCode != null ? !creativeCode.equals(that.creativeCode) : that.creativeCode != null) return false;
+        if (customMacros != null ? !customMacros.equals(that.customMacros) : that.customMacros != null) return false;
+        if (customNotifyData != null ? !customNotifyData.equals(that.customNotifyData) : that.customNotifyData != null)
+            return false;
+        if (defaultMediaURL != null ? !defaultMediaURL.equals(that.defaultMediaURL) : that.defaultMediaURL != null)
+            return false;
+        if (pixelType != that.pixelType) return false;
+        if (pixelURL != null ? !pixelURL.equals(that.pixelURL) : that.pixelURL != null) return false;
+        if (userData != null ? !userData.equals(that.userData) : that.userData != null) return false;
+        if (userDataJS != null ? !userDataJS.equals(that.userDataJS) : that.userDataJS != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = memberID;
+        result = 31 * result + (exclusive ? 1 : 0);
+        result = 31 * result + (noBid ? 1 : 0);
+        result = 31 * result + (noPriceReduction ? 1 : 0);
+        temp = price != +0.0d ? Double.doubleToLongBits(price) : 0L;
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = bidderRevShare != +0.0d ? Double.doubleToLongBits(bidderRevShare) : 0L;
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = bidderMinimumCPM != +0.0d ? Double.doubleToLongBits(bidderMinimumCPM) : 0L;
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + creativeID;
+        result = 31 * result + (customMacros != null ? customMacros.hashCode() : 0);
+        result = 31 * result + (userData != null ? userData.hashCode() : 0);
+        result = 31 * result + (userDataJS != null ? userDataJS.hashCode() : 0);
+        result = 31 * result + (defaultMediaURL != null ? defaultMediaURL.hashCode() : 0);
+        result = 31 * result + (buyerCurrency != null ? buyerCurrency.hashCode() : 0);
+        result = 31 * result + (creativeCode != null ? creativeCode.hashCode() : 0);
+        result = 31 * result + (auctionID != null ? auctionID.hashCode() : 0);
+        result = 31 * result + (customNotifyData != null ? customNotifyData.hashCode() : 0);
+        result = 31 * result + (clickURL != null ? clickURL.hashCode() : 0);
+        result = 31 * result + (pixelURL != null ? pixelURL.hashCode() : 0);
+        result = 31 * result + (pixelType != null ? pixelType.hashCode() : 0);
+        return result;
+    }
 }

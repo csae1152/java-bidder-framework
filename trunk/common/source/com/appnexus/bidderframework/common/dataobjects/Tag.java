@@ -143,4 +143,50 @@ public class Tag {
                 ", otherData='" + tagData + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tag)) return false;
+
+        Tag tag = (Tag) o;
+
+        if (adProfileID != tag.adProfileID) return false;
+        if (defaultCreativeID != tag.defaultCreativeID) return false;
+        if (Double.compare(tag.estimatedMinimumPrice, estimatedMinimumPrice) != 0) return false;
+        if (height != tag.height) return false;
+        if (Double.compare(tag.reservePrice, reservePrice) != 0) return false;
+        if (tagID != tag.tagID) return false;
+        if (width != tag.width) return false;
+        if (auctionID != null ? !auctionID.equals(tag.auctionID) : tag.auctionID != null) return false;
+        if (campaign != null ? !campaign.equals(tag.campaign) : tag.campaign != null) return false;
+        if (placement != null ? !placement.equals(tag.placement) : tag.placement != null) return false;
+        if (position != null ? !position.equals(tag.position) : tag.position != null) return false;
+        if (tagData != null ? !tagData.equals(tag.tagData) : tag.tagData != null) return false;
+        if (tagFormat != tag.tagFormat) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = tagID;
+        result = 31 * result + (auctionID != null ? auctionID.hashCode() : 0);
+        result = 31 * result + width;
+        result = 31 * result + height;
+        result = 31 * result + (position != null ? position.hashCode() : 0);
+        result = 31 * result + (tagFormat != null ? tagFormat.hashCode() : 0);
+        result = 31 * result + adProfileID;
+        temp = reservePrice != +0.0d ? Double.doubleToLongBits(reservePrice) : 0L;
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = estimatedMinimumPrice != +0.0d ? Double.doubleToLongBits(estimatedMinimumPrice) : 0L;
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + defaultCreativeID;
+        result = 31 * result + (campaign != null ? campaign.hashCode() : 0);
+        result = 31 * result + (placement != null ? placement.hashCode() : 0);
+        result = 31 * result + (tagData != null ? tagData.hashCode() : 0);
+        return result;
+    }
 }

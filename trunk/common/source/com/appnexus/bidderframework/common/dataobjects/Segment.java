@@ -104,4 +104,38 @@ public class Segment {
                 ", active=" + active +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Segment)) return false;
+
+        Segment segment = (Segment) o;
+
+        if (active != segment.active) return false;
+        if (expireMinutes != segment.expireMinutes) return false;
+        if (memberID != segment.memberID) return false;
+        if (other != segment.other) return false;
+        if (Float.compare(segment.price, price) != 0) return false;
+        if (segmentID != segment.segmentID) return false;
+        if (code != null ? !code.equals(segment.code) : segment.code != null) return false;
+        if (provider != null ? !provider.equals(segment.provider) : segment.provider != null) return false;
+        if (shortname != null ? !shortname.equals(segment.shortname) : segment.shortname != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = segmentID;
+        result = 31 * result + memberID;
+        result = 31 * result + other;
+        result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + (shortname != null ? shortname.hashCode() : 0);
+        result = 31 * result + (provider != null ? provider.hashCode() : 0);
+        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
+        result = 31 * result + expireMinutes;
+        result = 31 * result + (active ? 1 : 0);
+        return result;
+    }
 }

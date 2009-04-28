@@ -85,4 +85,28 @@ public class INetAddr {
     public String toString() {
         return getA1() + "." + getA2() + "." +  getA3() + "." + getA4() + ".";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof INetAddr)) return false;
+
+        INetAddr iNetAddr = (INetAddr) o;
+
+        if (a1 != iNetAddr.a1) return false;
+        if (a2 != iNetAddr.a2) return false;
+        if (a3 != iNetAddr.a3) return false;
+        if (a4 != iNetAddr.a4) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) a1;
+        result = 31 * result + (int) a2;
+        result = 31 * result + (int) a3;
+        result = 31 * result + (int) a4;
+        return result;
+    }
 }

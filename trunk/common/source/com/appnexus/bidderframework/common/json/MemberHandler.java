@@ -19,7 +19,7 @@ public class MemberHandler extends AbstractHandler<Member> {
 
     public void write(Writer writer) throws IOException {
         int memberID = getDataObject().getMemberID();
-        writer.append("\"id:\"").append(String.valueOf(memberID));
+        writer.append("\"id\":").append(String.valueOf(memberID));
     }
 
     public void startArray(String arrayName) {

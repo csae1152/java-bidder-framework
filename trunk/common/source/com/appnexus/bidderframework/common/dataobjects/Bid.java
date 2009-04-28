@@ -300,4 +300,77 @@ public class Bid {
                 ", minutesSinceLastImpression=" + minutesSinceLastImpression +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bid)) return false;
+
+        Bid bid = (Bid) o;
+
+        if (age != bid.age) return false;
+        if (dma != bid.dma) return false;
+        if (minutesSinceLastImpression != bid.minutesSinceLastImpression) return false;
+        if (noCookies != bid.noCookies) return false;
+        if (noFlash != bid.noFlash) return false;
+        if (sessionImpressionCount != bid.sessionImpressionCount) return false;
+        if (totalClickCount != bid.totalClickCount) return false;
+        if (totalImpressionCount != bid.totalImpressionCount) return false;
+        if (withinIFrame != bid.withinIFrame) return false;
+        if (acceptedLanguages != null ? !acceptedLanguages.equals(bid.acceptedLanguages) : bid.acceptedLanguages != null)
+            return false;
+        if (city != null ? !city.equals(bid.city) : bid.city != null) return false;
+        if (country != null ? !country.equals(bid.country) : bid.country != null) return false;
+        if (dataranJSON != null ? !dataranJSON.equals(bid.dataranJSON) : bid.dataranJSON != null) return false;
+        if (gender != bid.gender) return false;
+        if (inventoryClass != bid.inventoryClass) return false;
+        if (ipAddress != null ? !ipAddress.equals(bid.ipAddress) : bid.ipAddress != null) return false;
+        if (ixiData != null ? !ixiData.equals(bid.ixiData) : bid.ixiData != null) return false;
+        if (lucidData != null ? !lucidData.equals(bid.lucidData) : bid.lucidData != null) return false;
+        if (postalCode != null ? !postalCode.equals(bid.postalCode) : bid.postalCode != null) return false;
+        if (qsData != null ? !qsData.equals(bid.qsData) : bid.qsData != null) return false;
+        if (region != null ? !region.equals(bid.region) : bid.region != null) return false;
+        if (segments != null ? !segments.equals(bid.segments) : bid.segments != null) return false;
+        if (timeZone != null ? !timeZone.equals(bid.timeZone) : bid.timeZone != null) return false;
+        if (url != null ? !url.equals(bid.url) : bid.url != null) return false;
+        if (userAgent != null ? !userAgent.equals(bid.userAgent) : bid.userAgent != null) return false;
+        if (userData != null ? !userData.equals(bid.userData) : bid.userData != null) return false;
+        if (userDataJSON != null ? !userDataJSON.equals(bid.userDataJSON) : bid.userDataJSON != null) return false;
+        if (userID != null ? !userID.equals(bid.userID) : bid.userID != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userID != null ? userID.hashCode() : 0;
+        result = 31 * result + (userAgent != null ? userAgent.hashCode() : 0);
+        result = 31 * result + (acceptedLanguages != null ? acceptedLanguages.hashCode() : 0);
+        result = 31 * result + (noFlash ? 1 : 0);
+        result = 31 * result + (noCookies ? 1 : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + (qsData != null ? qsData.hashCode() : 0);
+        result = 31 * result + (ipAddress != null ? ipAddress.hashCode() : 0);
+        result = 31 * result + (country != null ? country.hashCode() : 0);
+        result = 31 * result + (region != null ? region.hashCode() : 0);
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (postalCode != null ? postalCode.hashCode() : 0);
+        result = 31 * result + dma;
+        result = 31 * result + (timeZone != null ? timeZone.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (inventoryClass != null ? inventoryClass.hashCode() : 0);
+        result = 31 * result + (withinIFrame ? 1 : 0);
+        result = 31 * result + (lucidData != null ? lucidData.hashCode() : 0);
+        result = 31 * result + (dataranJSON != null ? dataranJSON.hashCode() : 0);
+        result = 31 * result + (ixiData != null ? ixiData.hashCode() : 0);
+        result = 31 * result + (segments != null ? segments.hashCode() : 0);
+        result = 31 * result + (userData != null ? userData.hashCode() : 0);
+        result = 31 * result + (userDataJSON != null ? userDataJSON.hashCode() : 0);
+        result = 31 * result + totalImpressionCount;
+        result = 31 * result + sessionImpressionCount;
+        result = 31 * result + totalClickCount;
+        result = 31 * result + minutesSinceLastImpression;
+        return result;
+    }
 }

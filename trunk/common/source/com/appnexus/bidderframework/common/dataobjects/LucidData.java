@@ -31,4 +31,25 @@ public class LucidData {
     public void setLucidLevel(int lucidLevel) {
         this.lucidLevel = lucidLevel;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof LucidData)) return false;
+
+        LucidData lucidData = (LucidData) o;
+
+        if (lucidLevel != lucidData.lucidLevel) return false;
+        if (lucidLevels != null ? !lucidLevels.equals(lucidData.lucidLevels) : lucidData.lucidLevels != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lucidLevel;
+        result = 31 * result + (lucidLevels != null ? lucidLevels.hashCode() : 0);
+        return result;
+    }
 }
