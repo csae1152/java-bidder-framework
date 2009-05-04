@@ -28,10 +28,10 @@ public class BidRequestWriter1Test {
 
     @Test
     public void testMirroringBidRequests() throws IOException, ImpBusFormatException {
-        BidRequest[] brs = getOriginalAndMirroredBidRequest("bid_request.json.txt");
+        BidRequest[] brs = getOriginalAndMirroredBidRequest("test/bid_request.json.txt");
         Assert.assertEquals("bid_request.json.txt failed", brs[0], brs[1]);
 
-        brs = getOriginalAndMirroredBidRequest("bid_request2.json.txt");
+        brs = getOriginalAndMirroredBidRequest("test/bid_request2.json.txt");
         Assert.assertEquals("bid_request2.json.txt failed", brs[0], brs[1]);
     }
     

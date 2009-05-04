@@ -1,0 +1,34 @@
+{
+"timestamp":"2009-04-22 18:57:14",
+"members": [
+{"id":185}],
+"allow_exclusive":true,
+"debug_requested":true,
+"tags": [
+{"id":610,
+"auction_id":"c0455964-8b78-46d1-8ebc-8aa4e7a793e1",
+"size":"728x90",
+"position":"unknown",
+"tag_format":"iframe",
+"reserve_price":4.000,
+"tag_data":"male/22"}],
+"bid_info": {
+"user_id":"fe1f0fa0-196f-418c-a5d1-1bed3c578952",
+"user_agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.9) Gecko/2009040820 Firefox/3.0.9",
+"accepted_languages":"en-us,en;q=0.5",
+"no_flash":false,
+"no_cookies":false,
+"ip_address":"8.12.231.110",
+"country":"US",
+"region":"CA",
+"city":"Irvine",
+"postal_code":"92612",
+"dma":803,
+"url":"cnn.com",
+"inventory_class":"class_1",
+"within_iframe":false,
+"total_imps":30,
+"session_imps":2,
+"total_clicks":0,
+"mins_since_last_imp":1
+}}

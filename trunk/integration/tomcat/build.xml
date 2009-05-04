@@ -7,9 +7,11 @@
 
 
     <path id="jars.path">
+        <path location="${lib}/servlet-api.jar" />
+        <path location="${lib}/log4j-1.2.15.jar" />
+        <path location="${lib}/bidder-framework.jar" />
         <path location="${lib}/jackson-core-asl-0.9.9-3.jar" />
         <path location="${lib}/junit-4.5.jar" />
-        <path location="${lib}/log4j-1.2.15.jar" />
     </path>
 
     <target  name="init" description="creates the classes directory if not already done so">
@@ -23,7 +25,7 @@
         <copy todir="${dist}" flatten="true">
             <path refid="jars.path" />
         </copy>
-        <jar jarfile="${dist}/bidder-framework.jar" basedir="${build}"/>
+        <jar jarfile="${dist}/integration-tomcat.jar" basedir="${build}"/>
     </target>
 
     <target  name="compile" depends="init" description="compiles the source code into the classes directory">
