@@ -23,7 +23,7 @@
                          and copies them over and the jars into the dist directory">
         <mkdir dir="${dist}" />
         <copy todir="${dist}" flatten="true">
-            <path refid="jars.path" />
+		<fileset dir="dist" />
         </copy>
         <jar jarfile="${dist}/integration-tomcat.jar" basedir="${build}"/>
     </target>
