@@ -9,10 +9,5 @@
         <display-name>RequestHandler</display-name>
         <servlet-name>RequestHandlerServlet</servlet-name>
         <servlet-class>com.appnexus.integration.servlet.RequestHandlerServlet</servlet-class>
-        <init-param>
-            <param-name>myName</param-name>
-            <param-value>value</param-value>
-        </init-param>
-        <load-on-startup>0</load-on-startup>
     </servlet>
 </web-app>
