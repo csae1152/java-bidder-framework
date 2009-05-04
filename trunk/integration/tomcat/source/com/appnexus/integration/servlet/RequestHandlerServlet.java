@@ -30,12 +30,13 @@ public class RequestHandlerServlet extends HttpServlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
+        System.out.println("initing");
     }
 
     @Override
     public void init() throws ServletException {
         super.init();
-
+        System.out.println("initing");
         ActionManager.getInstance().registerBidRequestAction("com.appnexus.bidderactions.DefaultBidRequestAction");
         ActionManager.getInstance().registerBidResponseAction("com.appnexus.bidderactions.DefaultBidResponseAction");
         ActionManager.getInstance().registerClickRequestActionClassName("com.appnexus.bidderactions.DefaultClickRequestAction");
@@ -46,16 +47,31 @@ public class RequestHandlerServlet extends HttpServlet {
     }
 
     @Override
+    protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        System.out.println("doGetting");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        System.out.println("doPosting");
+    }
+
+    @Override
     protected void service(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        System.out.println("coming with request in servlet");
+        System.out.println("routing to action");
         try {
             ActionRouter.getInstance().routeHttpRequestToAction(httpServletRequest.getInputStream(), httpServletResponse.getWriter());
         } catch (ImpBusFormatException e) {
+            e.printStackTrace();
             LOG.fatal("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
             throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
         } catch (BidderFrameworkActionException e) {
+            e.printStackTrace();
             LOG.fatal("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
             throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
         } catch (ImpBusInvalidDataException e) {
+            e.printStackTrace();
             LOG.fatal("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
             throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
         }
