@@ -99,6 +99,14 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
         }
     }
 
+    @Override
+    public void endArray(String currentArrayName) {
+    }
+
+    @Override
+    public void endObject(String currentObjectName) {
+    }
+
     public void startObject(String objectName) {
         BidRequest br = getDataObject();
         if ("bid_info".equals(objectName)) {

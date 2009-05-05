@@ -43,7 +43,7 @@
     </target>
 
     <target  name="compile" depends="init" description="compiles the source code into the classes directory">
-        <javac  srcdir="${src}" destdir="${build}">
+        <javac  srcdir="${src}" destdir="${build}" debug="on">
             <classpath refid="jars.path" />
         </javac>
     </target>

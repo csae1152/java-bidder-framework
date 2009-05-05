@@ -13,6 +13,8 @@ import com.appnexus.bidderframework.common.dataobjects.PixelResponse;
 import java.io.Writer;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Ira Klotzko
@@ -20,6 +22,8 @@ import java.io.IOException;
  * Time: 10:32:17 AM
  */
 public class RootHandler extends AbstractHandler {
+
+    private static final Logger LOG = Logger.getLogger(RootHandler.class);
 
     private RootHandler() {
     }
@@ -71,18 +75,22 @@ public class RootHandler extends AbstractHandler {
     @SuppressWarnings({"unchecked"})
     public void startObject(String objectName) {
         if ("bid_request".equals(objectName)) {
+            LOG.info("Starting bid_request");
             setDataObject(new BidRequest());
             transferControlToNested(this, BidRequestHandler.get(), getDataObject());
         } else if ("bid_response".equals(objectName)) {
             setDataObject(new BidResponse());
             transferControlToNested(this, BidResponseHandler.get(), getDataObject());
         } else if ("click_request".equals(objectName)) {
+            LOG.info("Starting click_request");
             setDataObject(new ClickRequest());
             transferControlToNested(this, ClickRequestHandler.get(), getDataObject());
         } else if ("notify_request".equals(objectName)) {
+            LOG.info("Starting notify_request");
             setDataObject(new NotifyRequest());
             transferControlToNested(this, NotifyRequestHandler.get(), getDataObject());
         } else if ("pixel_request".equals(objectName)) {
+            LOG.info("Starting pixel_request");
             setDataObject(new PixelRequest());
             transferControlToNested(this, PixelRequestHandler.get(), getDataObject());
         } else if ("pixel_response".equals(objectName)) {

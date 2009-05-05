@@ -23,11 +23,11 @@ public class BidResponseHandler extends AbstractHandler<BidResponse>{
     
     public void write(Writer writer) throws IOException {
         BidResponse br = getDataObject();
+        writer.append("\"no_notify\":").append(String.valueOf(br.getDebugText()));
         if (br.getDebugText() != null) {
+            writer.append(",").append(IOUtils.LS);
             writer.append("\"debug_text\":\"").append(br.getDebugText()).append("\"");
         }
-        writer.append(",").append(IOUtils.LS);
-        writer.append("\"no_notify\":").append(String.valueOf(br.getDebugText()));
         writer.append(",").append(IOUtils.LS);
         writer.append("\"user_id_unknown\":").append(String.valueOf(br.isUserIDUnknown()));
         writer.append("\"responses\":[").append(IOUtils.LS);
