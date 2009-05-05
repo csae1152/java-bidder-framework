@@ -19,7 +19,7 @@ build and deploy
 
 running tomcat
 --------------
-linux> ./etc/init.d/tomcat5 start
+linux> /etc/init.d/tomcat5 start
 windows> catalina start | run
 
 
