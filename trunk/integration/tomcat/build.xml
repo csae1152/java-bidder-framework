@@ -34,11 +34,11 @@
     <target name="war-up" depends="dist"
             description="jars up the classes in the classes directory,
                          and copies them over and the jars into the dist directory">
-	<war destfile="${war.file.name}" webxml="web/WEB-INF/web.xml">
+	<war destfile="${war.file.name}.war" webxml="web/WEB-INF/web.xml">
 		<lib dir="dist" />
 		<lib dir="lib" />
 	</war>
-        <copy todir="${webapps.dir}" file="${war.file.name}" />
+        <copy todir="${webapps.dir}" file="${war.file.name}.war" />
     </target>
 
     <target  name="compile" depends="init" description="compiles the source code into the classes directory">
@@ -51,6 +51,7 @@
         <delete  dir="${build}" />
         <delete  dir="${dist}" />
         <delete  dir="${war}" />
-        <delete  file="${war.file.name}" />
+        <delete  dir="${webapps.dir}/${war.file.name}" />
+        <delete  file="${webapps.dir}/${war.file.name}.war" />
     </target>
 </project>
