@@ -30,3 +30,10 @@ linux> sh ReadyMonitorRunner.sh
 windows> ReadyMonitorRunner.bat
 
 
+running RequestMaker
+--------------------
+cd into RequestMaker/dist
+linux> sh RequestMakerRunner.sh
+windows> RequestMakerRunner.bat
+
+
