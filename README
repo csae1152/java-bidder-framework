@@ -1,0 +1,32 @@
+set up the ant deploy properties
+--------------------------------
+- edit integration/tomcat/deploy.properties
+	- to set the war file name
+	- to set the location of the webapps directory
+
+set up the ReadyMonitor
+-----------------------
+- edit ReadyMonitor/config/config.properties
+	- to send requests to the URL of choice
+	- to set the ping frequency
+
+
+build and deploy
+----------------
+- stop tomcat e.g. /etc/init.d/tomcat5 stop
+- ant clean deploy
+
+
+running tomcat
+--------------
+linux> ./etc/init.d/tomcat5 start
+windows> catalina start | run
+
+
+running ReadyMonitor
+--------------------
+cd into ReadyMonitor/dist
+linux> sh ReadyMonitorRunner.sh
+windows> ReadyMonitorRunner.bat
+
+
