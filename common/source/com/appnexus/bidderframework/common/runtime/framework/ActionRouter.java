@@ -29,7 +29,10 @@ import java.io.InputStream;
 import java.io.Writer;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
 public class ActionRouter {
+    private static final Logger LOG = Logger.getLogger(ActionRouter.class);
     private static final ActionRouter INSTANCE = new ActionRouter();
     
     private ActionRouter() {
@@ -50,6 +53,7 @@ public class ActionRouter {
         Object requestData = handler.getDataObject();
         if (requestData instanceof BidRequest) {
             IBidRequestAction action = ActionManager.getInstance().getBidRequestAction();
+            LOG.info("routing bid_request to action-handler=[" + action.getClass() + "]");
             BidResponse responseData = action.handleBidRequest((BidRequest) requestData);
             handler.setDataObject(responseData);
             handler.write(writer);
@@ -58,12 +62,15 @@ public class ActionRouter {
             action.handleBidResponse((BidResponse) requestData);
         } else if (requestData instanceof ClickRequest) {
             IClickRequestAction action = ActionManager.getInstance().getClickRequestAction();
+            LOG.info("routing click_request to action-handler=[" + action.getClass() + "]");
             action.handleClickRequest((ClickRequest) requestData);
         } else if (requestData instanceof NotifyRequest) {
             INotifyRequestAction action = ActionManager.getInstance().getNotifyRequestAction();
+            LOG.info("routing notify_request to action-handler=[" + action.getClass() + "]");
             action.handleNotifyRequest((NotifyRequest) requestData);
         } else if (requestData instanceof PixelRequest) {
             IPixelRequestAction action = ActionManager.getInstance().getPixelRequestAction();
+            LOG.info("routing pixel_request to action-handler=[" + action.getClass() + "]");
             PixelResponse responseData = action.handlePixelRequest((PixelRequest) requestData);
             handler.setDataObject(responseData);
             handler.write(writer);

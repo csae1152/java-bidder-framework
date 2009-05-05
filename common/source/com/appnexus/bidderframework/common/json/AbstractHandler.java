@@ -1,5 +1,7 @@
 package com.appnexus.bidderframework.common.json;
 
+import org.apache.log4j.Logger;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Ira Klotzko
@@ -7,6 +9,8 @@ package com.appnexus.bidderframework.common.json;
  * Time: 3:25:40 PM
  */
 public abstract class AbstractHandler<T> implements IJSonHandler<T> {
+
+    private static final Logger LOG = Logger.getLogger(AbstractHandler.class);
 
     private T dataObject;
     private JSonStAXReader reader;
@@ -30,12 +34,14 @@ public abstract class AbstractHandler<T> implements IJSonHandler<T> {
 
     public void endArray(String currentArrayName) {
         if (parentHandler != null) {
+            LOG.debug("on endarray=[" + currentArrayName + "] transferring control to=[" + parentHandler + "]");
             getReader().setCurrentHandler(parentHandler);
         }
     }
 
     public void endObject(String currentObjectName) {
         if (parentHandler != null) {
+            LOG.debug("on endobject=[" + currentObjectName + "] transferring control to=[" + parentHandler + "]");
             getReader().setCurrentHandler(parentHandler);
         }
     }
@@ -45,6 +51,7 @@ public abstract class AbstractHandler<T> implements IJSonHandler<T> {
     }
 
     protected void transferControlToNested(IJSonHandler currentHandler, IJSonHandler nestedHandler, Object nestedDataObject) {
+        LOG.debug("transferring control to nested from=[" + currentHandler + "] transferring control to=[" + nestedHandler + "]");
         nestedHandler.setParentHandler(currentHandler);
         nestedHandler.setReader(reader);
         //noinspection unchecked

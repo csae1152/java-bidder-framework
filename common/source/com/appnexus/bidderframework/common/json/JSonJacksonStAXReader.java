@@ -47,7 +47,7 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
             switch (token) {
                 case START_ARRAY: {
                     currentHandler.startArray(fieldName);
-                    LOG.debug("Jackson StAX Reader: start array[" + fieldName + "]");
+                    LOG.debug("Jackson StAX Reader: start array[" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                     parseRecursively(fieldName, null, true);
                     continue;
                 }
@@ -55,14 +55,14 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
                     if (isArray) {
                         currentHandler.startObjectInArray(fieldName);
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: start array object: in array [" + fieldName + "]");
+                            LOG.debug("Jackson StAX Reader: start array object: in array [" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     } else {
                         parser.nextToken();
                         parentObjectName = fieldName;
                         currentHandler.startObject(fieldName);
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: start object:[" + fieldName + "]");
+                            LOG.debug("Jackson StAX Reader: start object:[" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                         fieldName = parser.getCurrentName();
                     }
@@ -72,14 +72,14 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
                 case END_OBJECT: {
                     currentHandler.endObject(parentObjectName);
                     if (LOG.isDebugEnabled()) {
-                        LOG.debug("Jackson StAX Reader: end object:[" + parentObjectName + "]");
+                        LOG.debug("Jackson StAX Reader: end object:[" + parentObjectName + "] currentHandler=[" + currentHandler.getClass() + "]");
                     }
                     return;
                 }
                 case END_ARRAY: {
                     currentHandler.endArray(fieldName);
                     if (LOG.isDebugEnabled()) {
-                        LOG.debug("Jackson StAX Reader: end array[" + fieldName + "]");
+                        LOG.debug("Jackson StAX Reader: end array[" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                     }
                     return;
                 }
@@ -91,12 +91,12 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
                     if (isArray) {
                         currentHandler.readValue(fieldName, parser.getText());
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: string=value:[" + parser.getText() + "] in array[" + fieldName + "]");
+                            LOG.debug("Jackson StAX Reader: string=value:[" + parser.getText() + "] in array[" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     } else {
                         currentHandler.readValue(parser.getCurrentName(), parser.getText());
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: string=field name:[" + parser.getCurrentName() + "] value:[" + parser.getText() + "]");
+                            LOG.debug("Jackson StAX Reader: string=field name:[" + parser.getCurrentName() + "] value:[" + parser.getText() + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     }
                     continue;
@@ -105,12 +105,12 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
                     if (isArray) {
                         currentHandler.readValue(fieldName, parser.getIntValue());
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: int=value:[" + parser.getText() + "] in array[" + fieldName + "]");
+                            LOG.debug("Jackson StAX Reader: int=value:[" + parser.getText() + "] in array[" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     } else {
                         currentHandler.readValue(parser.getCurrentName(), parser.getIntValue());
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: int=field name:[" + parser.getCurrentName() + "] value:[" + parser.getIntValue() + "]");
+                            LOG.debug("Jackson StAX Reader: int=field name:[" + parser.getCurrentName() + "] value:[" + parser.getIntValue() + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     }
                     continue;
@@ -119,12 +119,12 @@ public class JSonJacksonStAXReader implements JSonStAXReader {
                     if (isArray) {
                         currentHandler.readValue(fieldName, parser.getFloatValue());
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: float=value:[" + parser.getText() + "] in array[" + fieldName + "]");
+                            LOG.debug("Jackson StAX Reader: float=value:[" + parser.getText() + "] in array[" + fieldName + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     } else {
                         currentHandler.readValue(parser.getCurrentName(), parser.getFloatValue());
                         if (LOG.isDebugEnabled()) {
-                            LOG.debug("Jackson StAX Reader: float=field name:[" + parser.getCurrentName() + "] value:[" + parser.getFloatValue() + "]");
+                            LOG.debug("Jackson StAX Reader: float=field name:[" + parser.getCurrentName() + "] value:[" + parser.getFloatValue() + "] currentHandler=[" + currentHandler.getClass() + "]");
                         }
                     }
                     continue;
