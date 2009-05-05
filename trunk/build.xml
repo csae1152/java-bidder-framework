@@ -19,11 +19,13 @@
 		<fileset dir="common/dist" />
 	</copy>
 	<ant antfile="build.xml" dir="integration/tomcat" target="war-up" />
+	<ant antfile="build.xml" dir="ReadyMonitor" target="dist" />
 
     </target>
 
     <target name="clean" description="calls clean on the common and integration directories">
 	<ant antfile="build.xml" dir="common" target="clean" />
 	<ant antfile="build.xml" dir="integration/tomcat" target="clean" />
+	<ant antfile="build.xml" dir="ReadyMonitor" target="clean" />
     </target>
 </project>

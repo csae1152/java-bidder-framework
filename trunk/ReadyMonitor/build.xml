@@ -3,18 +3,11 @@
     <property name="src" location="source" />
     <property name="build" location="classes" />
     <property name="dist" location="dist" />
-    <property name="war" location="war" />
     <property name="lib" location="lib" />
-	
-    <loadproperties srcFile="deploy.properties" />
 
 
     <path id="jars.path">
-        <path location="${lib}/servlet-api.jar" />
         <path location="${lib}/log4j-1.2.15.jar" />
-        <path location="${lib}/bidder-framework.jar" />
-        <path location="${lib}/jackson-core-asl-0.9.9-3.jar" />
-        <path location="${lib}/junit-4.5.jar" />
     </path>
 
     <target  name="init" description="creates the classes directory if not already done so">
@@ -26,20 +19,14 @@
                          and copies them over and the jars into the dist directory">
         <mkdir dir="${dist}" />
         <copy todir="${dist}" flatten="true">
-		<fileset dir="dist" />
+		<fileset dir="lib" />
+		<fileset dir="config" />
         </copy>
-        <jar jarfile="${dist}/integration-tomcat.jar" basedir="${build}"/>
-    </target>
-
-    <target name="war-up" depends="dist"
-            description="jars up the classes in the classes directory,
-                         and copies them over and the jars into the dist directory">
-	<war destfile="${war.file.name}.war" webxml="web/WEB-INF/web.xml">
-		<lib dir="dist" />
-		<lib dir="lib" />
-		<classes file="config/log4j.xml" />
-	</war>
-        <copy todir="${webapps.dir}" file="${war.file.name}.war" />
+        <jar jarfile="${dist}/ReadyMonitor.jar" basedir="${build}"/>
+	<copy todir="${dist}" file="config/log4j.xml" />
+	<copy todir="${dist}" file="config/config.properties" />
+	<copy todir="${dist}" file="ReadyMonitorRunner.bat" />
+	<copy todir="${dist}" file="ReadyMonitorRunner.sh" />
     </target>
 
     <target  name="compile" depends="init" description="compiles the source code into the classes directory">
@@ -51,8 +38,5 @@
     <target name="clean" description="cleans the classes and dist directories">
         <delete  dir="${build}" />
         <delete  dir="${dist}" />
-        <delete  dir="${war}" />
-        <delete  dir="${webapps.dir}/${war.file.name}" />
-        <delete  file="${webapps.dir}/${war.file.name}.war" />
     </target>
 </project>

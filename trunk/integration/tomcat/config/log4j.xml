@@ -10,8 +10,8 @@
         </layout>
     </appender>
 
-    <appender name="ReadyMonitor" class="org.apache.log4j.FileAppender">
-        <param name="File" value="ReadyMonitor.log" />
+    <appender name="ImpBus" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/logs/ImpBus.log" />
         <param name="Append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
@@ -22,7 +22,7 @@
     <root>
         <priority value ="DEBUG" />
         <appender-ref ref="console" />
-        <appender-ref ref="ReadyMonitor" />
+        <appender-ref ref="ImpBus" />
     </root>
 
 </log4j:configuration>

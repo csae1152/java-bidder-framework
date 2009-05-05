@@ -24,7 +24,6 @@ import org.apache.log4j.Logger;
  */
 public class RequestHandlerServlet extends HttpServlet {
 
-
     private static final Logger LOG = Logger.getLogger(JSonJacksonStAXReader.class);
     
     @Override
