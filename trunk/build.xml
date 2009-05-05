@@ -18,7 +18,7 @@
 	<copy todir="integration/tomcat/lib">
 		<fileset dir="common/dist" />
 	</copy>
-	<ant antfile="build.xml" dir="integration/tomcat" target="dist" />
+	<ant antfile="build.xml" dir="integration/tomcat" target="war-up" />
 
     </target>
 
