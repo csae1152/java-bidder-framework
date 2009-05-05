@@ -6,8 +6,19 @@
            version="2.5">
 
     <servlet>
-        <display-name>RequestHandler</display-name>
-        <servlet-name>RequestHandlerServlet</servlet-name>
+        <servlet-name>RequestHandler</servlet-name>
         <servlet-class>com.appnexus.integration.servlet.RequestHandlerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReadyHandler</servlet-name>
+        <servlet-class>com.appnexus.integration.servlet.ReadyHandlerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReadyHandler</servlet-name>
+        <url-pattern>/ReadyHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestHandler</servlet-name>
+        <url-pattern>/RequestHandler</url-pattern>
+    </servlet-mapping>
 </web-app>

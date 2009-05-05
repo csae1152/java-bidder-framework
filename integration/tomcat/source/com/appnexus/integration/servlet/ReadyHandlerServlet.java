@@ -1,5 +1,7 @@
 package com.appnexus.integration.servlet;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +18,11 @@ import java.io.IOException;
  */
 public class ReadyHandlerServlet extends HttpServlet {
 
+    private static final Logger LOG = Logger.getLogger(ReadyHandlerServlet.class);
     @Override
     protected void service(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.getWriter().write(1);
+        System.out.println("from sout ready handler is called");
+        LOG.info("ready handler is being called");
         httpServletResponse.getWriter().write("1");
     }
 }
