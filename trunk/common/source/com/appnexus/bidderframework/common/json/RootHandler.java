@@ -37,27 +37,27 @@ public class RootHandler extends AbstractHandler {
             throw new ImpBusInvalidDataException("The data object is null. It can't be null.");
         }
         if (root instanceof BidRequest) {
-            name = "bid_request: {";
+            name = "{\"bid_request\": {";
             ah = BidRequestHandler.get();
             ah.setDataObject(root);
         } else if (root instanceof BidResponse) {
-            name = "bid_response: {";
+            name = "{\"bid_response\": {";
             ah = BidResponseHandler.get();
             ah.setDataObject(root);
         } else if (root instanceof ClickRequest) {
-            name = "click_request: {";
+            name = "{\"click_request\": {";
             ah = ClickRequestHandler.get();
             ah.setDataObject(root);
         } else if (root instanceof NotifyRequest) {
-            name = "notify_request: {";
+            name = "{\"notify_request\": {";
             ah = NotifyRequestHandler.get();
             ah.setDataObject(root);
         } else if (root instanceof PixelRequest) {
-            name = "pixel_request: {";
+            name = "{\"{pixel_request\": {";
             ah = PixelRequestHandler.get();
             ah.setDataObject(root);
         } else if (root instanceof PixelResponse) {
-            name = "pixel_response: {";
+            name = "{pixel_response: {";
             ah = PixelResponseHandler.get();
             ah.setDataObject(root);
         } else {
@@ -65,7 +65,7 @@ public class RootHandler extends AbstractHandler {
         }
         writer.append(name).append(IOUtils.LS);
         ah.write(writer);
-        writer.append("}");
+        writer.append("}}");
     }
 
     public void startArray(String arrayName) {
