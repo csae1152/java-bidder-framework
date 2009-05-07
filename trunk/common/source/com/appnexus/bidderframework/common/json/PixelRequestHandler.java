@@ -104,6 +104,14 @@ public class PixelRequestHandler extends AbstractHandler<PixelRequest>{
 
     }
 
+
+    @Override
+    public void endArray(String currentArrayName) {
+    }
+
+    @Override
+    public void endObject(String currentObjectName) {
+    }
     private static ThreadLocal<PixelRequestHandler> factoryCache = new ThreadLocal<PixelRequestHandler>() {
         public synchronized PixelRequestHandler initialValue() {
             return new PixelRequestHandler();
