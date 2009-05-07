@@ -8,10 +8,12 @@
     <servlet>
         <servlet-name>RequestHandler</servlet-name>
         <servlet-class>com.appnexus.integration.servlet.RequestHandlerServlet</servlet-class>
+        <load-on-startup />
     </servlet>
     <servlet>
         <servlet-name>ReadyHandler</servlet-name>
         <servlet-class>com.appnexus.integration.servlet.ReadyHandlerServlet</servlet-class>
+        <load-on-startup />
     </servlet>
     <servlet-mapping>
         <servlet-name>ReadyHandler</servlet-name>
