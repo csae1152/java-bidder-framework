@@ -30,7 +30,7 @@ public class TagResponseHandler extends AbstractHandler<TagResponse>{
         writer.append(",").append(IOUtils.LS);
         writer.append("\"no_bid\":").append(String.valueOf(getDataObject().isNoBid()));
         writer.append(",").append(IOUtils.LS);
-        writer.append("\"no_price_reduction\":").append(String.valueOf(getDataObject()));
+        writer.append("\"no_price_reduction\":").append(String.valueOf(getDataObject().isNoPriceReduction()));
         writer.append(",").append(IOUtils.LS);
         writer.append("\"price\":").append(String.valueOf(getDataObject().getPrice()));
         writer.append(",").append(IOUtils.LS);
