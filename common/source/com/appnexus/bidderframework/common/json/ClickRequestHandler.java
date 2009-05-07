@@ -85,6 +85,15 @@ public class ClickRequestHandler extends AbstractHandler<ClickRequest>{
         }
     }
 
+
+    @Override
+    public void endArray(String currentArrayName) {
+    }
+
+    @Override
+    public void endObject(String currentObjectName) {
+    }
+
     public void readValue(String fieldName, int value) {
         if ("member_id".equals(fieldName)) {
             getDataObject().setMemberID(value);

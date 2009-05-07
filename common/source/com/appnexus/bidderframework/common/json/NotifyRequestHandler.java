@@ -107,6 +107,14 @@ public class NotifyRequestHandler extends AbstractHandler<NotifyRequest>{
         }
     }
 
+    @Override
+    public void endArray(String currentArrayName) {
+    }
+
+    @Override
+    public void endObject(String currentObjectName) {
+    }
+
     private static ThreadLocal<NotifyRequestHandler> factoryCache = new ThreadLocal<NotifyRequestHandler>() {
         public synchronized NotifyRequestHandler initialValue() {
             return new NotifyRequestHandler();

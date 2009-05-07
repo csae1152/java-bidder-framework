@@ -4,36 +4,60 @@ set up the ant deploy properties
 	- to set the war file name
 	- to set the location of the webapps directory
 
-set up the ReadyMonitor
------------------------
-- edit ReadyMonitor/config/config.properties
-	- to send requests to the URL of choice
-	- to set the ping frequency
+set up the ready handler on tomcat other similar application servers
+--------------------------------------------------------------------
+- The ReadyHandlerServlet is responsible for replyiing with an ascii value of "1"
+- Located in integration/tomcat/source com.appnexus.integration.servlet
+- Set up web.xml in integration/tomcat/WEB-INF
+- Included in source package
 
+set up servlet mappings on tomcat other similar application servers
+-------------------------------------------------------------------
+- Always use only one servlet for handling requests: com.appnexus.integration.servlet.RequestHandlerServlet
+- Different requests (bid, notify, etc...) are determined inside this servlet and mapped to correct action handler
+- Default setup included integration/tomcat/WEB-INF/web.xml
+- web.xml maps NotifyHandler, BidHandler, ClickHandler, PixelHandler
+  to the same servlet: com.appnexus.integration.servlet.RequestHandlerServlet
+- Modify web.xml if servlet uri needs to be mapped differently. For instance some may have /BidRequest rather
+  than /BidHandler
 
 build and deploy
 ----------------
-- stop tomcat e.g. /etc/init.d/tomcat5 stop
-- ant clean deploy
+- if using a clean directive stop tomcat:
+    - linux> /etc/init.d/tomcat5 stop
+    - windows> catalina stop
+- ant [clean] deploy
 
+build distribution only
+-----------------------
+- if using a clean directive stop tomcat:
+    - linux> /etc/init.d/tomcat5 stop
+    - windows> catalina stop
+- ant [clean] dist
 
 running tomcat
 --------------
 linux> /etc/init.d/tomcat5 start
 windows> catalina start | run
 
-
-running ReadyMonitor
---------------------
-cd into ReadyMonitor/dist
-linux> sh ReadyMonitorRunner.sh
-windows> ReadyMonitorRunner.bat
-
-
-running RequestMaker
---------------------
-cd into RequestMaker/dist
-linux> sh RequestMakerRunner.sh
-windows> RequestMakerRunner.bat
+using ReadyMonitor (testing)
+----------------------------
+- Ready Monitor mimics the Impression Bus's request to a servlet awaiting "1" ascii values in return
+- edit ReadyMonitor/config/config.properties
+	- to send requests to the URL of choice
+	- to set the ping frequency
+- running
+    - cd into ReadyMonitor/dist
+    - linux> sh ReadyMonitorRunner.sh
+    - windows> ReadyMonitorRunner.bat
 
 
+using RequestMaker (testing)
+----------------------------
+- Ready Monitor mimics the Impression Bus's requests to a BidHandler, NotifyHandler, ClickHandler, PixelHandler
+- Looks in a directory called requests (in working directory) and randomly chooses a file which is in json format
+- Sends randomly chosen request (from above) to URI specified in config/config.properties
+- running
+    - cd into RequestMaker/dist
+    - linux> sh RequestMakerRunner.sh
+    - windows> RequestMakerRunner.bat

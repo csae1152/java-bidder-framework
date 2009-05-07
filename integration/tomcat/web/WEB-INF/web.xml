@@ -19,6 +19,18 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RequestHandler</servlet-name>
-        <url-pattern>/RequestHandler</url-pattern>
+        <url-pattern>/BidHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestHandler</servlet-name>
+        <url-pattern>/NotifyHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestHandler</servlet-name>
+        <url-pattern>/PixelHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestHandler</servlet-name>
+        <url-pattern>/ClickHandler</url-pattern>
     </servlet-mapping>
 </web-app>
