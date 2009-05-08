@@ -2,11 +2,13 @@ package com.appnexus.bidderframework.common.test;
 
 import com.appnexus.bidderframework.common.dataobjects.BidRequest;
 import com.appnexus.bidderframework.common.ImpBusFormatException;
+import com.appnexus.bidderframework.common.ImpBusInvalidDataException;
 import com.appnexus.bidderframework.common.json.JSonStAXReaderParserFactory;
 import com.appnexus.bidderframework.common.json.IJSonHandler;
 import com.appnexus.bidderframework.common.json.BidRequestHandler;
 import com.appnexus.bidderframework.common.json.JSonStAXReader;
 import com.appnexus.bidderframework.common.json.JSonWriter;
+import com.appnexus.bidderframework.common.json.RootHandler;
 
 import java.io.IOException;
 import java.io.File;
@@ -41,12 +43,32 @@ public class TestUtils {
         return dataObject;
     }
 
+    public static Object getDataObject(String fileName) throws IOException, ImpBusFormatException {
+        JSonStAXReaderParserFactory factory = new JSonStAXReaderParserFactory();
+        RootHandler handler = RootHandler.get();
+        JSonStAXReader reader = factory.createReader(new File(fileName), handler);
+        handler.setReader(reader);
+        reader.parse();
+        return handler.getDataObject();
+    }
+
     @SuppressWarnings({"ResultOfMethodCallIgnored"})
     public static void writeBidRequest(BidRequest dataObject, String fileName, boolean deleteOnExit) throws IOException {
         JSonWriter writer = new JSonWriter();
         File fileToWrite = new File(fileName);
         fileToWrite.createNewFile();
         writer.writeBidRequest(dataObject, fileToWrite);
+        if (deleteOnExit) {
+            fileToWrite.deleteOnExit();
+        }
+    }
+
+    @SuppressWarnings({"ResultOfMethodCallIgnored"})
+    public static void writeRequest(Object dataObject, String fileName, boolean deleteOnExit) throws IOException, ImpBusInvalidDataException {
+        JSonWriter writer = new JSonWriter();
+        File fileToWrite = new File(fileName);
+        fileToWrite.createNewFile();
+        writer.writeRequest(dataObject, fileToWrite);
         if (deleteOnExit) {
             fileToWrite.deleteOnExit();
         }

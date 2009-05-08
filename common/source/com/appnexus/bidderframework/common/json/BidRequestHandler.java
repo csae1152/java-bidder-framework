@@ -30,7 +30,6 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
 
         BidRequest br = getDataObject();
 
-        writer.append("{").append(IOUtils.LS);
         writer.append("\"timestamp\":\"").append(IOUtils.getFormattedDate(br.getTimestamp())).append("\"");
         writer.append(",").append(IOUtils.LS);
         writer.append("\"members\": [").append(IOUtils.LS);
@@ -76,7 +75,6 @@ public class BidRequestHandler extends AbstractHandler<BidRequest> {
             bh.write(writer);
             writer.append("}");
         }
-        writer.append("}").append(IOUtils.LS);
     }
 
     public void startArray(String arrayName) {

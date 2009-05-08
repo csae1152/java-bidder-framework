@@ -7,6 +7,7 @@ import com.appnexus.bidderframework.common.dataobjects.Bid;
 import com.appnexus.bidderframework.common.dataobjects.Segment;
 import com.appnexus.bidderframework.common.dataobjects.Member;
 import com.appnexus.bidderframework.common.ImpBusFormatException;
+import com.appnexus.bidderframework.common.ImpBusInvalidDataException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.io.IOException;
 public class BidRequestSegmentTest {
 
     @Test
-    public void segmentTest() throws IOException, ImpBusFormatException {
+    public void segmentTest() throws IOException, ImpBusFormatException, ImpBusInvalidDataException {
         BidRequest bidRequestOriginal = new BidRequest();
         Bid bid = new Bid();
         bid.setUserID("33_tester");
@@ -45,9 +46,9 @@ public class BidRequestSegmentTest {
         segments.add(createSegment("code4", "appnexus", "shorty4", memberID));
         members.add(createMember(memberID));
 
-        TestUtils.writeBidRequest(bidRequestOriginal, "common/test/test1.original.json", false);
-        BidRequest bidRequestMirrored = TestUtils.getBidRequest("common/test/test1.original.json");
-        TestUtils.writeBidRequest(bidRequestOriginal, "common/test/test1.mirrored.json", false);
+        TestUtils.writeRequest(bidRequestOriginal, "common/test/test1.original.json", false);
+        BidRequest bidRequestMirrored = (BidRequest) TestUtils.getDataObject("common/test/test1.original.json");
+        TestUtils.writeRequest(bidRequestMirrored, "common/test/test1.mirrored.json", false);
         Assert.assertEquals(bidRequestOriginal, bidRequestMirrored);
     }
 
