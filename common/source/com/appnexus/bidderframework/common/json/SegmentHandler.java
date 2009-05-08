@@ -45,7 +45,7 @@ public class SegmentHandler extends AbstractHandler<Segment> {
     }
 
     public void readValue(String fieldName, String value) throws ImpBusFormatException {
-        if ("shortname".equals(fieldName)) {
+        if ("short_name".equals(fieldName)) {
             getDataObject().setShortname(value);
         } else if ("code".equals(fieldName)) {
             getDataObject().setCode(value);
