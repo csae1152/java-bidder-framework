@@ -5,7 +5,6 @@ import com.appnexus.bidderframework.common.runtime.framework.ActionRouter;
 import com.appnexus.bidderframework.common.ImpBusFormatException;
 import com.appnexus.bidderframework.common.BidderFrameworkActionException;
 import com.appnexus.bidderframework.common.ImpBusInvalidDataException;
-import com.appnexus.bidderframework.common.json.JSonJacksonStAXReader;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,12 +23,12 @@ import org.apache.log4j.Logger;
  */
 public class RequestHandlerServlet extends HttpServlet {
 
-    private static final Logger LOG = Logger.getLogger(JSonJacksonStAXReader.class);
+    private static final Logger LOG = Logger.getLogger(RequestHandlerServlet.class);
     
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
-        System.out.println("initing");
+        LOG.info("initing");
     }
 
     @Override
@@ -47,7 +46,7 @@ public class RequestHandlerServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        LOG.info("routing to actions");
+        LOG.debug("routing to actions");
         try {
             ActionRouter.getInstance().routeHttpRequestToAction(httpServletRequest.getInputStream(), httpServletResponse.getWriter());
             httpServletResponse.getWriter().flush();

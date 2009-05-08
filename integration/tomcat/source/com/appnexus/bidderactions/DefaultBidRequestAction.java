@@ -22,23 +22,7 @@ import java.util.ArrayList;
 public class DefaultBidRequestAction implements IBidRequestAction {
     private static final Logger LOG = Logger.getLogger(DefaultBidRequestAction.class);
     public BidResponse handleBidRequest(BidRequest bidRequest) {
-        LOG.info("Start Handling BidRequest");
-//        System.out.println("start handling bid request");
-//        String fileName = "BidRequest." + System.currentTimeMillis() + ".json";
-//        System.out.println("BidRequest." + System.currentTimeMillis() + ".json");
-//        File file = new File(fileName);
-//        try {
-//            boolean nf = file.createNewFile();
-//            LOG.debug("file is ready for writing [" + file.getAbsolutePath() + ", created=" + nf + "]");
-//            System.out.println("file is ready for writing [" + file.getAbsolutePath() + ", created=" + nf + "]");
-//            JSonWriter jsw = new JSonWriter();
-//            jsw.writeBidRequest(bidRequest, file);
-//            LOG.debug("file has been written [" + file.getAbsolutePath() + ", created=" + nf + "]");
-//            System.out.println("file has been written [" + file.getAbsolutePath() + ", created=" + nf + "]");
-//        } catch (IOException e) {
-//            LOG.error("couldn't create the file: " + file.getAbsolutePath() + " was an error: " + e.getMessage(), e);
-//            System.err.println("couldn't create the file: " + file.getAbsolutePath() + " was an error: " + e.getMessage());
-//        }
+        LOG.debug("Start Handling BidRequest");
         int requestCount = bidRequest.getTags().size();
         BidResponse response = new BidResponse();
         response.setBidResponseItems(new ArrayList<TagResponse>(requestCount));
