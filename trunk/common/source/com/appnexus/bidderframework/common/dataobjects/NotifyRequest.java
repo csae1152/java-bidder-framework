@@ -88,15 +88,13 @@ public class NotifyRequest {
         if (error != null ? !error.equals(that.error) : that.error != null) return false;
         if (notifyTags != null ? !notifyTags.equals(that.notifyTags) : that.notifyTags != null) return false;
         if (tag != null ? !tag.equals(that.tag) : that.tag != null) return false;
-        if (timestamp != null ? !timestamp.equals(that.timestamp) : that.timestamp != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = timestamp != null ? timestamp.hashCode() : 0;
-        result = 31 * result + (fail ? 1 : 0);
+        int result = fail ? 1 : 0;
         result = 31 * result + (error != null ? error.hashCode() : 0);
         result = 31 * result + responseTime;
         result = 31 * result + (bid != null ? bid.hashCode() : 0);

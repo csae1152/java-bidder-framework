@@ -104,7 +104,6 @@ public class PixelRequest {
         if (ipAddress != null ? !ipAddress.equals(that.ipAddress) : that.ipAddress != null) return false;
         if (queryString != null ? !queryString.equals(that.queryString) : that.queryString != null) return false;
         if (redirectURL != null ? !redirectURL.equals(that.redirectURL) : that.redirectURL != null) return false;
-        if (timestamp != null ? !timestamp.equals(that.timestamp) : that.timestamp != null) return false;
         if (userAgent != null ? !userAgent.equals(that.userAgent) : that.userAgent != null) return false;
         if (userData != null ? !userData.equals(that.userData) : that.userData != null) return false;
         if (userID != null ? !userID.equals(that.userID) : that.userID != null) return false;
@@ -114,8 +113,7 @@ public class PixelRequest {
 
     @Override
     public int hashCode() {
-        int result = timestamp != null ? timestamp.hashCode() : 0;
-        result = 31 * result + (queryString != null ? queryString.hashCode() : 0);
+        int result = queryString != null ? queryString.hashCode() : 0;
         result = 31 * result + memberID;
         result = 31 * result + (userID != null ? userID.hashCode() : 0);
         result = 31 * result + (userData != null ? userData.hashCode() : 0);

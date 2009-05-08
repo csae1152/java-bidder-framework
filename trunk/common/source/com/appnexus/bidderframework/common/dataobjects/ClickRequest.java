@@ -104,7 +104,6 @@ public class ClickRequest {
         if (customNotifyData != null ? !customNotifyData.equals(that.customNotifyData) : that.customNotifyData != null)
             return false;
         if (referrerURL != null ? !referrerURL.equals(that.referrerURL) : that.referrerURL != null) return false;
-        if (timestamp != null ? !timestamp.equals(that.timestamp) : that.timestamp != null) return false;
         if (userAgent != null ? !userAgent.equals(that.userAgent) : that.userAgent != null) return false;
         if (userData != null ? !userData.equals(that.userData) : that.userData != null) return false;
         if (userDataJson != null ? !userDataJson.equals(that.userDataJson) : that.userDataJson != null) return false;
@@ -115,8 +114,7 @@ public class ClickRequest {
 
     @Override
     public int hashCode() {
-        int result = timestamp != null ? timestamp.hashCode() : 0;
-        result = 31 * result + (auctionID != null ? auctionID.hashCode() : 0);
+        int result = auctionID != null ? auctionID.hashCode() : 0;
         result = 31 * result + (userID != null ? userID.hashCode() : 0);
         result = 31 * result + memberID;
         result = 31 * result + (referrerURL != null ? referrerURL.hashCode() : 0);

@@ -90,15 +90,13 @@ public class BidRequest {
         if (bid != null ? !bid.equals(that.bid) : that.bid != null) return false;
         if (members != null ? !members.equals(that.members) : that.members != null) return false;
         if (tags != null ? !tags.equals(that.tags) : that.tags != null) return false;
-        if (timestamp != null ? !timestamp.equals(that.timestamp) : that.timestamp != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = timestamp != null ? timestamp.hashCode() : 0;
-        result = 31 * result + (members != null ? members.hashCode() : 0);
+        int result = members != null ? members.hashCode() : 0;
         result = 31 * result + (allowExclusive ? 1 : 0);
         result = 31 * result + (debugRequested ? 1 : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);

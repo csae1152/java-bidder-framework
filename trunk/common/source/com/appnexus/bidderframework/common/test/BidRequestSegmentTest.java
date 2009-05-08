@@ -25,6 +25,7 @@ public class BidRequestSegmentTest {
     public void segmentTest() throws IOException, ImpBusFormatException {
         BidRequest bidRequestOriginal = new BidRequest();
         Bid bid = new Bid();
+        bid.setUserID("33_tester");
         bidRequestOriginal.setBid(bid);
         bidRequestOriginal.setTimestamp(new Date());
         List<Member> members = new ArrayList<Member>();
@@ -47,7 +48,7 @@ public class BidRequestSegmentTest {
         TestUtils.writeBidRequest(bidRequestOriginal, "common/test/test1.original.json", false);
         BidRequest bidRequestMirrored = TestUtils.getBidRequest("common/test/test1.original.json");
         TestUtils.writeBidRequest(bidRequestOriginal, "common/test/test1.mirrored.json", false);
-//        Assert.assertEquals(bidRequestOriginal, bidRequestMirrored);
+        Assert.assertEquals(bidRequestOriginal, bidRequestMirrored);
     }
 
     private Member createMember(int memberID) {
@@ -60,11 +61,8 @@ public class BidRequestSegmentTest {
     private Segment createSegment(String code, String provider, String shortname, int memberID) {
         Segment seg = new Segment();
         seg.setSegmentID((int) (Math.random() * 1000));
-        seg.setActive(true);
         seg.setCode(code);
-        seg.setExpireMinutes((int) (Math.random() * 10));
         seg.setMemberID(memberID);
-        seg.setOther((int) (Math.random() * 100));
         seg.setPrice((float) (Math.random() + 3));
         seg.setProvider(provider);
         seg.setSegmentID((int) (Math.random() * 234234));
