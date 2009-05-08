@@ -1,10 +1,10 @@
-{
-"timestamp":"2009-05-08 10:47:28",
+{"bid_request": {
+"timestamp":"2009-05-08 11:03:07",
 "members": [
-{"id":963},
-{"id":320},
-{"id":422},
-{"id":68}],
+{"id":941},
+{"id":742},
+{"id":418},
+{"id":389}],
 "allow_exclusive":false,
 "debug_requested":false,
 "bid_info": {
@@ -14,37 +14,37 @@
 "within_iframe":false,
 "segments":[
 {
-"id":67582,
-"price":3.780228,
+"id":56394,
+"price":3.0790308,
 "short_name":"shorty1",
-"member_id":963,
+"member_id":941,
 "code":"code1",
 "provider":"cnn"
 }
 ,
 {
-"id":220105,
-"price":3.4567938,
+"id":215574,
+"price":3.598231,
 "short_name":"shorty2",
-"member_id":320,
+"member_id":742,
 "code":"code2",
 "provider":"yahoo"
 }
 ,
 {
-"id":165323,
-"price":3.1534076,
+"id":216856,
+"price":3.9404984,
 "short_name":"shorty3",
-"member_id":422,
+"member_id":418,
 "code":"code3",
 "provider":"google"
 }
 ,
 {
-"id":212498,
-"price":3.9923332,
+"id":179798,
+"price":3.7483735,
 "short_name":"shorty4",
-"member_id":68,
+"member_id":389,
 "code":"code4",
 "provider":"appnexus"
 }
@@ -54,4 +54,4 @@
 "session_imps":0,
 "total_clicks":0,
 "mins_since_last_imp":0
-}}
+}}}

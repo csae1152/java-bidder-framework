@@ -1,6 +1,7 @@
 package com.appnexus.bidderframework.common.json;
 
 import com.appnexus.bidderframework.common.dataobjects.BidRequest;
+import com.appnexus.bidderframework.common.ImpBusInvalidDataException;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -21,6 +22,20 @@ public class JSonWriter {
     public void writeBidRequest(BidRequest bidRequest, File file) throws IOException {
         BidRequestHandler handler = BidRequestHandler.get();
         handler.setDataObject(bidRequest);
+        //noinspection ResultOfMethodCallIgnored
+        file.createNewFile();
+        FileWriter fw = new FileWriter(file, false);
+        try {
+            handler.write(fw);
+        } finally {
+            fw.close();
+        }
+    }
+
+    public void writeRequest(Object request, File file) throws IOException, ImpBusInvalidDataException {
+        RootHandler handler = RootHandler.get();
+        //noinspection unchecked
+        handler.setDataObject(request);
         //noinspection ResultOfMethodCallIgnored
         file.createNewFile();
         FileWriter fw = new FileWriter(file, false);
