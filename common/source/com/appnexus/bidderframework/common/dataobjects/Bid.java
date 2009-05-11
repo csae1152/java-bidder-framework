@@ -41,7 +41,7 @@ public class Bid {
     private int totalImpressionCount;
     private int sessionImpressionCount;
     private int totalClickCount;
-    private int minutesSinceLastImpression;
+    private int minutesSinceLastImpression = -1;
 
     public String getUserID() {
         return userID;
