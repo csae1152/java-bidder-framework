@@ -41,17 +41,19 @@ public class TagResponseHandler extends AbstractHandler<TagResponse>{
         writer.append("\"creative_id\":").append(String.valueOf(getDataObject().getCreativeID()));
         writer.append(",").append(IOUtils.LS);
         writer.append("\"custom_macros\":[").append(IOUtils.LS);
-        for (int i = 0; i < getDataObject().getCustomMacros().size(); i++) {
-            if (i > 0) {
-                writer.append(",").append(IOUtils.LS);
-            }
-            writer.append("{").append(IOUtils.LS);
-            CustomMacro customMacro = getDataObject().getCustomMacros().get(i);
-            CustomMacroHandler cmh = CustomMacroHandler.get();
-            cmh.setDataObject(customMacro);
-            cmh.write(writer);
-            writer.append("}").append(IOUtils.LS);
-        }
+		if (getDataObject().getCustomMacros() != null) {
+        	for (int i = 0; i < getDataObject().getCustomMacros().size(); i++) {
+            	if (i > 0) {
+                	writer.append(",").append(IOUtils.LS);
+            	}
+            	writer.append("{").append(IOUtils.LS);
+            	CustomMacro customMacro = getDataObject().getCustomMacros().get(i);
+            	CustomMacroHandler cmh = CustomMacroHandler.get();
+            	cmh.setDataObject(customMacro);
+            	cmh.write(writer);
+            	writer.append("}").append(IOUtils.LS);
+        	}
+		}
         writer.append("]");
         if (getDataObject().getUserData() != null) {
             writer.append(",").append(IOUtils.LS);

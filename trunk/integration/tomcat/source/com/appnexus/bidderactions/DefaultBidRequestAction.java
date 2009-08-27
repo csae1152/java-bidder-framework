@@ -103,6 +103,7 @@ public class DefaultBidRequestAction implements IBidRequestAction {
             
 			if (!meetsBidConditions(bidInfo)) {
 				tagResponse.setNoBid(true);
+            	response.getBidResponseItems().add(tagResponse);
 				continue;
 			}
 
