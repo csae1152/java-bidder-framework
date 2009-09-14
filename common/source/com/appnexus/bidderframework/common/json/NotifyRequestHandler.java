@@ -36,14 +36,14 @@ public class NotifyRequestHandler extends AbstractHandler<NotifyRequest>{
         writer.append("\"response_time_ms\":").append(String.valueOf(getDataObject().getResponseTime()));
         if (getDataObject().getBid() != null && getDataObject().getBid().getUserID() != null && getDataObject().getBid().getUserID().trim().length() > 0) {
             writer.append(",").append(IOUtils.LS);
-            writer.append("\"bid_info \"{:").append(IOUtils.LS);
+            writer.append("\"bid_info\":{").append(IOUtils.LS);
             BidHandler bh = BidHandler.get();
             bh.setDataObject(getDataObject().getBid());
             bh.write(writer);
             writer.append("}");
         }
         writer.append(",").append(IOUtils.LS);
-        writer.append("\"tags \"[:").append(IOUtils.LS);
+        writer.append("\"tags\":[").append(IOUtils.LS);
         for (int i = 0; i < getDataObject().getNotifyTags().size(); i++) {
             if (i > 0) {
                 writer.append(",").append(IOUtils.LS);
