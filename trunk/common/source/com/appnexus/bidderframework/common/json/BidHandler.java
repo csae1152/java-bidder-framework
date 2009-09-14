@@ -125,7 +125,7 @@ public class BidHandler extends AbstractHandler<Bid> {
         }
         if (bid.getUserDataJSON() != null) {
             writer.append(",").append(IOUtils.LS);
-            writer.append("\"userdata_json\":\"").append(IOUtils.encodeEscapeChars(bid.getUserData())).append("\"").append(IOUtils.LS);
+            writer.append("\"userdata_json\":\"").append(IOUtils.encodeEscapeChars(bid.getUserDataJSON())).append("\"").append(IOUtils.LS);
         }
         if (!bid.isNoCookies()) {
             writer.append(",").append(IOUtils.LS);
@@ -195,7 +195,9 @@ public class BidHandler extends AbstractHandler<Bid> {
             getDataObject().setUserData(value);
         } else  if ("datran_data".equals(fieldName)) {
             getDataObject().setDataranJSON(value);
-        }
+        } else if ("userdata_json".equals(fieldName)) {
+			getDataObject().setUserDataJSON(value);
+		}
     }
 
     public void readValue(String fieldName, int value) {
