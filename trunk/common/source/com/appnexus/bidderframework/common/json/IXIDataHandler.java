@@ -22,7 +22,7 @@ public class IXIDataHandler extends AbstractHandler<IXIData> {
         IXIData ixi = getDataObject();
         String zipPart = String.valueOf(ixi.getZipPlus4() / 10000);
         String plus4Part = String.valueOf(ixi.getZipPlus4() % 10000);
-        writer.append("\"zip_plus_four\":\"").append(zipPart).append("-").append(plus4Part).append(",").append(IOUtils.LS);
+        writer.append("\"zip_plus_four\":\"").append(zipPart).append("-").append(plus4Part).append("\",").append(IOUtils.LS);
         writer.append("\"espectrum_full\":").append(String.valueOf(ixi.getEspectrumFull())).append(",").append(IOUtils.LS);
         writer.append("\"dsi_decile\":").append(String.valueOf(ixi.getDsiDecile())).append(",").append(IOUtils.LS);
         writer.append("\"income360_decile\":").append(String.valueOf(ixi.getIncome360Decile())).append("").append(IOUtils.LS);
@@ -41,6 +41,8 @@ public class IXIDataHandler extends AbstractHandler<IXIData> {
     }
 
     public void readValue(String fieldName, String value) throws ImpBusFormatException {
+        // Impression bus no longer sending in zip_plus_four data
+        /*
         if ("zip_plus_four".equals(fieldName)) {
             if (value != null && value.trim().length() > 0) {
                 try {
@@ -52,6 +54,7 @@ public class IXIDataHandler extends AbstractHandler<IXIData> {
                 }
             }
         }
+		*/
     }
 
     public void readValue(String fieldName, int value) {
