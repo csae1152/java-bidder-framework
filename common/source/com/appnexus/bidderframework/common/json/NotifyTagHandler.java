@@ -1,14 +1,13 @@
 package com.appnexus.bidderframework.common.json;
 
+import java.io.IOException;
+import java.io.Writer;
+import java.text.NumberFormat;
+
 import com.appnexus.bidderframework.common.ImpBusFormatException;
-import com.appnexus.bidderframework.common.utils.IOUtils;
 import com.appnexus.bidderframework.common.dataobjects.NotifyTag;
 import com.appnexus.bidderframework.common.dataobjects.NotifyType;
-import com.appnexus.bidderframework.common.dataobjects.Tag;
-
-import java.io.Writer;
-import java.io.IOException;
-import java.text.NumberFormat;
+import com.appnexus.bidderframework.common.utils.IOUtils;
 
 /**
  * Created by IntelliJ IDEA.
@@ -58,14 +57,13 @@ public class NotifyTagHandler extends AbstractHandler<NotifyTag>{
             writer.append(",").append(IOUtils.LS);
         }
         if (getDataObject().getCustomNotifyData() != null) {
-            writer.append(",").append(IOUtils.LS);
             writer.append("\"custom_notify_data\":\"").append(IOUtils.encodeEscapeChars(getDataObject().getCustomNotifyData())).append("\"");
-        }
-        writer.append(",").append(IOUtils.LS);
-        writer.append("\"notify_type\":\"").append(String.valueOf(getDataObject().getNotifyType())).append("\"");
-        if (getDataObject().getTagID() > 0) {
             writer.append(",").append(IOUtils.LS);
-            writer.append("{");
+        }
+        writer.append("\"notify_type\":\"").append(String.valueOf(getDataObject().getNotifyType())).append("\"");
+        writer.append(",").append(IOUtils.LS);
+        if (getDataObject().getTagID() > 0) {
+            writer.append("\"full_tag_info\":{");
             TagHandler th = TagHandler.get();
             th.setDataObject(getDataObject().getTag());
             th.write(writer);
@@ -86,6 +84,8 @@ public class NotifyTagHandler extends AbstractHandler<NotifyTag>{
     public void startObjectInArray(String arrayName) {
     }
 
+
+    
     public void readValue(String fieldName, String value) throws ImpBusFormatException {
         if ("auction_id".equals(fieldName)) {
             getDataObject().setAuctionID(value);
