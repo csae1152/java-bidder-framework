@@ -20,7 +20,7 @@
                   "position" : "unknown",
                   "tag_format" : "iframe",
                   "reserve_price" : 4.000,
-                  "estimated_clear_price" : 4.0000,
+                  "estimated_clear_price" : 100,
                   "tag_data" : "male/22"
                }
             ],
