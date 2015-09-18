@@ -24,5 +24,17 @@
         <appender-ref ref="console" />
         <appender-ref ref="ReadyMonitor" />
     </root>
+    
+    <root>
+        <priority value="INFO" />
+        <appender-ref ref="console" />
+        <appender-ref ref="ReadyMonitor" />
+    </root>
+    
+     <root>
+        <priority value="WARN" />
+        <appender-ref ref="console" />
+        <appender-ref ref="ReadyMonitor" />
+    </root>
 
 </log4j:configuration>
