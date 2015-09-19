@@ -45,4 +45,6 @@ public interface IJSonHandler<T> {
     void readValue(String fieldName, float value);
 
     void readValue(String fieldName, boolean value);
+    
+    void readTractorData(String tractorName, float distance);
 }
