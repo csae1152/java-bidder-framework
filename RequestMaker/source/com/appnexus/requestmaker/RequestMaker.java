@@ -17,6 +17,8 @@ import java.net.URLConnection;
  * User: Ira Klotzko
  * Date: May 5, 2009
  * Time: 1:56:26 PM
+ * 
+ * extended by @author: Helmut Steiner
  */
 public class RequestMaker {
 
@@ -42,9 +44,10 @@ public class RequestMaker {
         private final int pingTime;
         private final String targetURI;
 
-        private Pinger(int pingTime, String targetURI) {
+        private Pinger(int pingTime, String targetURI, int timeOut) {
             this.pingTime = pingTime;
             this.targetURI = targetURI;
+            this.timeOut = timeOut;
         }
         public void run() {
             URL url;
