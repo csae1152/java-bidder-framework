@@ -66,7 +66,7 @@ public class IOUtils {
 
         public synchronized DateFormat initialValue() {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            format.setLenient(false);
+            format.setLenient(true);
             return format;
         }
 
