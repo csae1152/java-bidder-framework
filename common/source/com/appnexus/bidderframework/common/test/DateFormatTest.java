@@ -22,6 +22,7 @@ public class DateFormatTest {
         Assert.assertTrue(testEquals("1984-03-24 23:12:55"));
         Assert.assertTrue(testEquals("2000-12-20 03:02:05"));
         Assert.assertTrue(testEquals("2009-03-20 02:02:55"));
+        Assert.assertTrue(testEquals("2014-02-29 01:09:99");
     }
 
     @Test
