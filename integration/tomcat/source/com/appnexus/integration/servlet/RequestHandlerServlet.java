@@ -20,6 +20,9 @@ import org.apache.log4j.Logger;
  * User: Ira Klotzko
  * Date: Apr 20, 2009
  * Time: 7:29:01 PM
+ * 
+ * updated by @author Helmut Steiner
+ * 
  */
 public class RequestHandlerServlet extends HttpServlet {
 
@@ -52,15 +55,15 @@ public class RequestHandlerServlet extends HttpServlet {
             httpServletResponse.getWriter().flush();
         } catch (ImpBusFormatException e) {
             e.printStackTrace();
-            LOG.fatal("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
+            LOG.error("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
             throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
         } catch (BidderFrameworkActionException e) {
             e.printStackTrace();
-            LOG.fatal("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
+            LOG.error("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
             throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
         } catch (ImpBusInvalidDataException e) {
             e.printStackTrace();
-            LOG.fatal("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
+            LOG.error("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
             throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
         }
     }
