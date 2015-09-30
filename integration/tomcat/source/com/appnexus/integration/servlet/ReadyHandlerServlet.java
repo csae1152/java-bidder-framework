@@ -16,7 +16,9 @@ import java.io.IOException;
  * Date: Apr 28, 2009
  * Time: 4:05:15 PM
  *
- * // returns 1 when called
+ * updated by @author Helmut Steiner
+ * 
+ *  returns 1 when called
  */
 public class ReadyHandlerServlet extends HttpServlet {
 
@@ -29,19 +31,19 @@ public class ReadyHandlerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        LOG.debug("doGet:==> ready handler is being called");
+        LOG.debug("doGet:==> Map is being ready for initalizing.");
         httpServletResponse.getWriter().write("1");
     }
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        LOG.debug("doPost:==> ready handler is being called");
+        LOG.debug("doPost:==> Map is being ready for initalizing.");
         httpServletResponse.getWriter().write("1");
     }
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        LOG.debug("service(simple):==> ready handler is being called");
+        LOG.debug("service(simple):==> Map is being ready for showing data.");
         servletResponse.getWriter().write("1");
     }
 }
