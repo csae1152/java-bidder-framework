@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
  * User: Ira Klotzko
  * Date: Apr 8, 2009
  * Time: 6:38:21 PM
+ * 
+ * updated by @author: Helmut Steiner
+ * 
  */
 public class IOUtils {
 
@@ -22,6 +25,7 @@ public class IOUtils {
         ENCODE_MAPPING.put('\n', "\\n");
         ENCODE_MAPPING.put('\r', "\\r");
         ENCODE_MAPPING.put('\t', "\\t");
+        ENCODE_MAPPING.put('\f', "\\f");
         ENCODE_MAPPING.put('\"', "\\\"");
     }
 
