@@ -80,6 +80,7 @@ public class RequestMaker {
                         sb.append(line);
                     }
                     rd.close();
+                    String resultAuction = "Success";
                     String result = sb.toString();
                     LOG.info("Wrote contents of file=[" + requestFile.getAbsolutePath() + "] to url=[" + targetURI + "] and received=[" + result + "]");
                     Thread.sleep(pingTime);
