@@ -3,6 +3,9 @@
  * User: Ira Klotzko
  * Date: Apr 20, 2009
  * Time: 7:51:18 PM
+ * 
+ * updated by @author Helmut Steiner
+ * 
  */
 package com.appnexus.bidderframework.common.runtime.framework;
 
@@ -26,6 +29,8 @@ public class ActionManager {
     private String clickRequestActionClassName;
     private String pixelRequestActionClassName;
     private String pixelResponseActionClassName;
+    
+    private String getTractorBidings;
 
     private ActionManager() {
     }
