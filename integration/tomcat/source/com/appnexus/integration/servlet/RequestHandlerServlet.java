@@ -60,7 +60,7 @@ public class RequestHandlerServlet extends HttpServlet {
         } catch (BidderFrameworkActionException e) {
             e.printStackTrace();
             LOG.error("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
-            throw new ServletException("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
+            throw new ServletException("There was an issue connecting to ISOFarmBus: [" + e.getMessage() + "]", e);
         } catch (ImpBusInvalidDataException e) {
             e.printStackTrace();
             LOG.error("There was an issue routing the request to the action: [" + e.getMessage() + "]", e);
