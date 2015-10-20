@@ -8,9 +8,12 @@ import com.appnexus.bidderframework.common.dataobjects.PixelResponse;
  * User: Ira Klotzko
  * Date: Apr 21, 2009
  * Time: 12:18:56 PM
+ * 
+ * updated by @author: Helmut Steiner
+ * 
  */
 public class DefaultPixelResponseAction implements IPixelResponseAction {
-    public void handlePixelResponse(PixelResponse pixelResponse) {
+    public void handleIsoBusResponse(IsoResponse IsoResponse) {
 
     }
 }
