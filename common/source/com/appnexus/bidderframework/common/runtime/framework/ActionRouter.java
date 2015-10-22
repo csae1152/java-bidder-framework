@@ -3,6 +3,9 @@
  * User: Ira Klotzko
  * Date: Apr 21, 2009
  * Time: 10:28:48 AM
+ * 
+ * @updated by @author Helmut Steiner
+ * 
  */
 package com.appnexus.bidderframework.common.runtime.framework;
 
@@ -77,6 +80,8 @@ public class ActionRouter {
         } else if (requestData instanceof PixelResponse) {
             IPixelResponseAction action = ActionManager.getInstance().getPixelResponseAction();
             action.handlePixelResponse((PixelResponse) requestData);
-        }
+        } else {
+            action.handleIsoDevice((IsoDevice) isoDevise);  
+          }
     }
 }
