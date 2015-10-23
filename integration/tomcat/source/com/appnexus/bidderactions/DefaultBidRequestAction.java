@@ -25,6 +25,9 @@ import java.util.List;
  * User: Ira Klotzko
  * Date: Apr 21, 2009
  * Time: 10:30:57 AM
+ * 
+ * @updated by @author Helmut Steiner
+ * 
  */
 public class DefaultBidRequestAction implements IBidRequestAction {
     private static final Logger LOG = Logger.getLogger(DefaultBidRequestAction.class);
@@ -34,37 +37,37 @@ public class DefaultBidRequestAction implements IBidRequestAction {
 	private static boolean meetsBidConditions(Bid bidInfo) {
 		int totalImpCount = bidInfo.getTotalImpressionCount();
 		if (totalImpCount > 3) {
-			LOG.info("BidRequest does not meet bid conditions:\n total impression count > 3:  " + totalImpCount);
+			LOG.warn("BidRequest does not meet bid conditions:\n total impression count > 3:  " + totalImpCount);
 			return false;
 		}
 		int minutesSinceLastImp = bidInfo.getMinutesSinceLastImpression();
 		if (minutesSinceLastImp >= 0 && minutesSinceLastImp < 20) {
-			LOG.info("BidRequest does not meet bid conditions:\n minutes since last impression < 20:  " + minutesSinceLastImp);
+			LOG.warn("BidRequest does not meet bid conditions:\n minutes since last impression < 20:  " + minutesSinceLastImp);
 			return false;
 		}
 		int age = bidInfo.getAge();
 		if (age > 0 && age < 18) {
-			LOG.info("BidRequest does not meet bid conditions:\n age defined and < 18:  " + age);
+			LOG.warn("BidRequest does not meet bid conditions:\n age defined and < 18:  " + age);
 			return false;
 		}
 		InventoryClass invClass = bidInfo.getInventoryClass();
 		if (invClass == null || (invClass != InventoryClass.CLASS_2_URL && invClass != InventoryClass.CLASS_3_URL)) {
-			LOG.info("BidRequest does not meet bid conditions:\n inventory category is not class_2 or class_3:  " + invClass);
+			LOG.warn("BidRequest does not meet bid conditions:\n inventory category is not class_2 or class_3:  " + invClass);
 			return false;
 		}
     	LucidData lucidData = bidInfo.getLucidData();  
 		if (lucidData == null) {
-			LOG.info("BidRequest does not meet bid conditions:\n no Lucid data");
+			LOG.warn("BidRequest does not meet bid conditions:\n no Lucid data");
 			return false;
 		}
 		List<LucidLevelData> lucidDataLevels = lucidData.getLucidLevels();
 		if (lucidDataLevels == null || lucidDataLevels.size() < 1) {
-			LOG.info("BidRequest does not meet bid conditions:\n no Lucid level");
+			LOG.warn("BidRequest does not meet bid conditions:\n no Lucid level");
 			return false;
 		}
 		int dc = lucidDataLevels.get(0).getDc();
 		if (dc != DESIRED_LUCID) {
-			LOG.info("BidRequest does not meet bid conditions:\n Lucid level is not " + DESIRED_LUCID + ":  " + dc);
+			LOG.warn("BidRequest does not meet bid conditions:\n Lucid level is not " + DESIRED_LUCID + ":  " + dc);
 			return false;
 		}
 		return true;
