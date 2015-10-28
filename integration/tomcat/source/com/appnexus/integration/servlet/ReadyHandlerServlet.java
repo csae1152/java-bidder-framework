@@ -31,7 +31,7 @@ public class ReadyHandlerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        LOG.debug("doGet:==> Map is being ready for initalizing.");
+        LOG.debug("doGet:==> ISOBus is ready for use.");
         httpServletResponse.getWriter().write("1");
     }
 
