@@ -16,11 +16,14 @@ import java.net.MalformedURLException;
  * User: Ira Klotzko
  * Date: May 4, 2009
  * Time: 9:44:18 PM
+ * 
+ * updated by @author: Helmut Steiner
+ * 
  */
-public class ReadyMonitor {
+ public class ReadyMonitor {
 
     private static final Logger LOG = Logger.getLogger(ReadyMonitor.class);
-    private static final int DEFAULT_PING_TIME = 1000;
+    private static final int DEFAULT_PING_TIME = 10000;
 
     public static void main(String[] args) throws IOException {
         Properties config = new Properties();
