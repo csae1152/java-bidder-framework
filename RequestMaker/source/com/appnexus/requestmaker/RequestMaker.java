@@ -25,7 +25,7 @@ public class RequestMaker {
     private static final Logger LOG = Logger.getLogger(RequestMaker.class);
     private static final int DEFAULT_PING_TIME = 5000;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String... args) throws IOException {
         Properties config = new Properties();
         config.load(new FileInputStream("config.properties"));
         String targetURI = (String) config.get("target.uri");
