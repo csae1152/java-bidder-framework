@@ -27,6 +27,7 @@
 	<copy todir="${dist}" file="config/config.properties" />
 	<copy todir="${dist}" file="ReadyMonitorRunner.bat" />
 	<copy todir="${dist}" file="ReadyMonitorRunner.sh" />
+	<copy todir="${dist}" file="IsoBusRunner.sh" />
     </target>
 
     <target  name="compile" depends="init" description="compiles the source code into the classes directory">
