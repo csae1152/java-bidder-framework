@@ -35,4 +35,8 @@
         <servlet-name>RequestHandler</servlet-name>
         <url-pattern>/ClickHandler</url-pattern>
     </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>IsoBusDevice</servlet-name>
+        <url-pattern>/isoBusHandler</url-pattern>
+    </servlet-mapping>
 </web-app>
