@@ -29,6 +29,14 @@
 "member_id":294,
 "code":"code2",
 "provider":"yahoo"
+},
+{
+"id":546789,
+"price":3.263563,
+"short_name":"shorty2",
+"member_id":294,
+"code":"code2",
+"provider":"yahoo"
 }
 ,
 {
