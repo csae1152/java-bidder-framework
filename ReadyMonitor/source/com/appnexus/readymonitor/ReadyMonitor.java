@@ -30,6 +30,7 @@ import java.net.MalformedURLException;
         config.load(new FileInputStream("config.properties"));
         String targetURI = (String) config.get("target.uri");
         String pingTimeStr = (String) config.get("ping.time");
+        String isoBusStr = (String) config.get("isoConfig");
         int pingTime;
         try {
             pingTime = Integer.parseInt(pingTimeStr);
