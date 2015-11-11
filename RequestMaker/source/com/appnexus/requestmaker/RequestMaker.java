@@ -23,13 +23,14 @@ import java.net.URLConnection;
 public class RequestMaker {
 
     private static final Logger LOG = Logger.getLogger(RequestMaker.class);
-    private static final int DEFAULT_PING_TIME = 5000;
+    private static final int DEFAULT_PING_TIME = 1000;
 
     public static void main(String... args) throws IOException {
         Properties config = new Properties();
         config.load(new FileInputStream("config.properties"));
         String targetURI = (String) config.get("target.uri");
         String pingTimeStr = (String) config.get("request.time");
+        String tractorId = (String) config.get("tractor.id");
         int pingTime;
         try {
             pingTime = Integer.parseInt(pingTimeStr);
