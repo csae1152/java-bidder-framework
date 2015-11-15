@@ -9,7 +9,7 @@
 {"id": 196}],
 "allow_exclusive": false,
 "debug_requested": false,
-"test": false,
+"test": true,
 "tags": [
 {"id": 610,
 "auction_id": "29757bda-65f9-468e-a7bc-5a448cff5025",
