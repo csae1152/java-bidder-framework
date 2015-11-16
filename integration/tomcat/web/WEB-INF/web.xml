@@ -39,4 +39,8 @@
         <servlet-name>IsoBusDevice</servlet-name>
         <url-pattern>/isoBusHandler</url-pattern>
     </servlet-mapping>
+       <servlet-mapping>
+        <servlet-name>IsoAgroDevice</servlet-name>
+        <url-pattern>/isoAgroDevice</url-pattern>
+    </servlet-mapping>
 </web-app>
