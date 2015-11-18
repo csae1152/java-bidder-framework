@@ -32,6 +32,11 @@ public class DateFormatTest {
         Assert.assertTrue(testException("2000-12-20 25:02:05"));
         Assert.assertTrue(testException("2009-03-20 02:02:65"));
     }
+    
+    @Test
+    public void testAgroIsoBusConnection() throws IOException {
+        Assert.assertEquals("connected", true);
+    }
 
     private boolean testException(String initialValue) throws ParseException {
         try {
