@@ -26,7 +26,8 @@ public class IOUtils {
         ENCODE_MAPPING.put('\r', "\\r");
         ENCODE_MAPPING.put('\t', "\\t");
         ENCODE_MAPPING.put('\f', "\\f");
-        ENCODE_MAPPING.put('\"', "\\\"");
+        ENCODE_MAPPING.put('\a"', "\\a"");
+        ENCODE_MAPPING.put('\"', "\\a"" );
     }
 
     private IOUtils() {
