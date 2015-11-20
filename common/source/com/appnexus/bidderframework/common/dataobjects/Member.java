@@ -4,17 +4,20 @@ package com.appnexus.bidderframework.common.dataobjects;
  * User: Ira Klotzko
  * Date: Apr 8, 2009
  * Time: 2:54:12 PM
+ * 
+ * updated by @author Helmut Steiner
+ * 
  */
-public class Member {
+public class TractorId {
 
-    private int memberID;
+    private int tractorId;
 
-    public int getMemberID() {
-        return memberID;
+    public int getTractorId() {
+        return tractorId;
     }
 
-    public void setMemberID(int memberID) {
-        this.memberID = memberID;
+    public void setTractorId(int tractorId) {
+        this.tractorId = tractorId;
     }
 
     @Override
