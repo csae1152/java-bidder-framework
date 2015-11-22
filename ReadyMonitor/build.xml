@@ -39,5 +39,6 @@
     <target name="clean" description="cleans the classes and dist directories">
         <delete  dir="${build}" />
         <delete  dir="${dist}" />
+        <delete  dir="${war}" />
     </target>
 </project>
