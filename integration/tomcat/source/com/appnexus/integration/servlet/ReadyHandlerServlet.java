@@ -44,6 +44,6 @@ public class ReadyHandlerServlet extends HttpServlet {
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         LOG.debug("service(simple):==> Map is being ready for showing data.");
-        servletResponse.getWriter().write("1");
+        servletResponse.getWriter().write("0");
     }
 }
