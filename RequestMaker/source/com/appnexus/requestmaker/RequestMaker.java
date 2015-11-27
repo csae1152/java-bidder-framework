@@ -31,6 +31,7 @@ public class RequestMaker {
         String targetURI = (String) config.get("target.uri");
         String pingTimeStr = (String) config.get("request.time");
         String tractorId = (String) config.get("tractor.id");
+        String isoAgroBus = (String) config.get("isoAgroBus");
         int pingTime;
         try {
             pingTime = Integer.parseInt(pingTimeStr);
