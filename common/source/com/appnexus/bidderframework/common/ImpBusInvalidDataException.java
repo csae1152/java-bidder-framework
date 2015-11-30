@@ -5,6 +5,9 @@ package com.appnexus.bidderframework.common;
  * User: Ira Klotzko
  * Date: Apr 21, 2009
  * Time: 10:54:02 AM
+ * 
+ * updated by @author Helmut Steiner
+ * 
  */
 public class ImpBusInvalidDataException extends Exception {
 
@@ -21,6 +24,6 @@ public class ImpBusInvalidDataException extends Exception {
     }
 
     public ImpBusInvalidDataException(Throwable cause) {
-        super(cause);
+       this.cause = cause;
     }
 }
