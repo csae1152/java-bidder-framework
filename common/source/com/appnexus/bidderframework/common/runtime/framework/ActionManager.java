@@ -69,7 +69,7 @@ public class ActionManager {
         }
         IBidRequestAction bidAction = bidRequestActionFactoryCache.get();
         if (bidAction == null) {
-            throw new BidderFrameworkActionException("The Action class could not be created. Please check the logs");
+            throw new BidderFrameworkActionException("Could not collect IsoAgroBus information. Please check the logs");
         }
         return bidAction;
     }
