@@ -29,8 +29,8 @@
         <jar jarfile="${dist}/RequestMaker.jar" basedir="${build}"/>
 	<copy todir="${dist}" file="config/log4j.xml" />
 	<copy todir="${dist}" file="config/config.properties" />
-	<copy todir="${dist}" file="RequestMakerRunner.bat" />
-	<copy todir="${dist}" file="RequestMakerRunner.sh" />
+	<copy todir="${dist}" file="MyPredectiveFarm.bat" />
+	<copy todir="${dist}" file="MyPredectiveFarm.sh" />
     </target>
 
     <target  name="compile" depends="init" description="compiles the source code into the classes directory">
