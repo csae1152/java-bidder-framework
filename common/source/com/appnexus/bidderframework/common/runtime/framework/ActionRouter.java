@@ -69,7 +69,7 @@ public class ActionRouter {
             action.handleClickRequest((ClickRequest) requestData);
         } else if (requestData instanceof NotifyRequest) {
             INotifyRequestAction action = ActionManager.getInstance().getNotifyRequestAction();
-            LOG.warn("routing notify_request to action-handler=[" + action.getClass() + "]");
+            LOG.debug("routing notify_request to action-handler=[" + action.getClass() + "]");
             action.handleNotifyRequest((NotifyRequest) requestData);
         } else if (requestData instanceof PixelRequest) {
             IPixelRequestAction action = ActionManager.getInstance().getPixelRequestAction();
