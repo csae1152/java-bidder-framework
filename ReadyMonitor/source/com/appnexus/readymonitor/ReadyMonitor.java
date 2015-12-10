@@ -44,10 +44,12 @@ import java.net.MalformedURLException;
     private static class Pinger implements Runnable {
         private final int pingTime;
         private final String targetURI;
+        private final String auctionId;
 
-        private Pinger(int pingTime, String targetURI) {
+        private Pinger(int pingTime, String targetURI, String auctionId) {
             this.pingTime = pingTime;
             this.targetURI = targetURI;
+            this.auctionId = auctionId;
         }
         public void run() {
             URL url;
