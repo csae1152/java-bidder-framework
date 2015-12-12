@@ -20,7 +20,7 @@
 	</copy>
 	<ant antfile="build.xml" dir="integration/tomcat" target="war-up" />
 	<ant antfile="build.xml" dir="ReadyMonitor" target="dist" />
-	<ant antfile="build.xml" dir="RequestMaker" target="dist" />
+	<ant antfile="build.xml" dir="AgroIsoBus" target="dist" />
 
     </target>
 
