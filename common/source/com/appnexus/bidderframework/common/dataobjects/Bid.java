@@ -7,6 +7,9 @@ import java.util.List;
  * User: Ira Klotzko
  * Date: Apr 8, 2009
  * Time: 2:57:13 PM
+ * 
+ * updated by @author Helmut Steiner
+ * 
  */
 public class Bid {
 
@@ -25,6 +28,7 @@ public class Bid {
     private String postalCode;
     private int dma;
     private String timeZone;
+    private String bidderId;
 
     // only if tag.hide_referrer is false [to be implemented in writer not here]
     private String url;
