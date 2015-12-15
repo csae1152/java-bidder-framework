@@ -55,6 +55,13 @@ public class IOUtils {
     public static String getFormattedDate(Date dateToFormat) {
         return factoryCache.get().format(dateToFormat);
     }
+    
+    /**
+    * 
+    */
+    public static String getAuctionId(Date date) {
+        return factoryCache.get().format(date);
+    } 
 
     /**
      * In a thread-safe way, parse a string into a date
