@@ -24,4 +24,8 @@ public class BidderFrameworkActionException extends Exception {
     public BidderFrameworkActionException(Throwable cause) {
         super(cause);
     }
+    
+    public IsoAgroBusConnectionException(Throwable cause) {
+        super(message, cause);
+    }
 }
