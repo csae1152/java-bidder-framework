@@ -16,8 +16,8 @@
         <load-on-startup />
     </servlet>
     <servlet-mapping>
-        <servlet-name>ReadyHandler</servlet-name>
-        <url-pattern>/ReadyHandler</url-pattern>
+        <servlet-name>TractorHandler</servlet-name>
+        <url-pattern>/tractorHandler</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RequestHandler</servlet-name>
