@@ -59,7 +59,7 @@ public class ActionRouter {
             LOG.info("routing bid_request to action-handler=[" + action.getClass() + "]");
             BidResponse responseData = action.handleBidRequest((BidRequest) requestData);
             handler.setDataObject(responseData);
-            handler.write(writer);
+            handler.write(writer.toIsoAgroBus);
         } else if (requestData instanceof BidResponse) {
             IBidResponseAction action = ActionManager.getInstance().getBidResponseAction();
             action.handleBidResponse((BidResponse) requestData);
