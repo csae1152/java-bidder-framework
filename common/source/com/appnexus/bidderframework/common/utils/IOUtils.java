@@ -57,7 +57,7 @@ public class IOUtils {
     }
     
     /**
-    * 
+    * @return a formatted string which includes device id.
     */
     public static String getAuctionId(Date date) {
         return factoryCache.get().format(date);
