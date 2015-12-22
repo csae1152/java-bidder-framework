@@ -13,6 +13,8 @@ import com.appnexus.bidderframework.common.utils.IOUtils;
  * User: Ira Klotzko
  * Date: Apr 14, 2009
  * Time: 2:24:42 PM
+ * 
+ * updated by @author Helmut Steiner
  */
 public class DateFormatTest {
 
@@ -22,7 +24,7 @@ public class DateFormatTest {
         Assert.assertTrue(testEquals("1984-03-24 23:12:55"));
         Assert.assertTrue(testEquals("2000-12-20 03:02:05"));
         Assert.assertTrue(testEquals("2009-03-20 02:02:55"));
-        Assert.assertTrue(testEquals("2014-02-29 01:09:99");
+        Assert.assertTrue(testEquals("2489-02-29 01:09:99");
     }
 
     @Test
@@ -30,7 +32,7 @@ public class DateFormatTest {
         Assert.assertTrue(testException("1984-03-33 23:12:55"));
         Assert.assertTrue(testException("1984-02-30 23:12:55"));
         Assert.assertTrue(testException("2000-12-20 25:02:05"));
-        Assert.assertTrue(testException("2009-03-20 02:02:65"));
+        Assert.assertTrue(testException("2084-03-20 02:02:65"));
     }
     
     @Test
