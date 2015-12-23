@@ -37,8 +37,7 @@ import java.net.MalformedURLException;
         } catch (NumberFormatException e) {
             pingTime = DEFAULT_PING_TIME;
         }
-        Pinger pingEarlyAndOften = new Pinger(pingTime, targetURI);
-        new Thread(pingEarlyAndOften).start();
+        init();
     }
 
     private static class Pinger implements Runnable {
@@ -59,6 +58,11 @@ import java.net.MalformedURLException;
                 LOG.fatal("Could not create URL from=[" + targetURI + "] exiting monitor", e);
                 return;
             }
+            
+        public static void init() {
+           Pinger pingEarlyAndOften = new Pinger(pingTime, targetURI);
+           new Thread(pingEarlyAndOften).start();
+        }
             //noinspection InfiniteLoopStatement
             while(true) {
                 try {
