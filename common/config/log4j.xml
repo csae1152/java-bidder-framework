@@ -10,7 +10,7 @@
         </layout>
     </appender>
 
-    <appender name="ReadyMonitor" class="org.apache.log4j.FileAppender">
+    <appender name="IsoAgroReadyMonitor" class="org.apache.log4j.FileAppender">
         <param name="File" value="framework.log" />
         <param name="Append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">
