@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
  public class ReadyMonitor {
 
     private static final Logger LOG = Logger.getLogger(ReadyMonitor.class);
-    private static final int DEFAULT_PING_TIME = 10000;
+    private static final int DEFAULT_PING_TIME = 1000;
 
     public static void main(String[] args) throws IOException {
         Properties config = new Properties();
@@ -53,7 +53,7 @@ import java.net.MalformedURLException;
         public void run() {
             URL url;
             try {
-                url = new URL(targetURI + "?hello=world");
+                url = new URL(targetURI + "?agroisobus");
             } catch (MalformedURLException e) {
                 LOG.fatal("Could not create URL from=[" + targetURI + "] exiting monitor", e);
                 return;
@@ -79,7 +79,7 @@ import java.net.MalformedURLException;
                     Thread.sleep(pingTime);
                 } catch (InterruptedException ignored) {
                 } catch (IOException e) {
-                    LOG.error("Could not send request to=[" + targetURI + "] ", e);
+                    LOG.debug("Could not send request to=[" + targetURI + "] ", e);
                 }
             }
         }
