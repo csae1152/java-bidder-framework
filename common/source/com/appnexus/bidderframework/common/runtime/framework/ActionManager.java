@@ -94,6 +94,10 @@ public class ActionManager {
         public synchronized IBidRequestAction get() {
             return super.get();
         }
+        
+        public synchronized isoagrobus() {
+            super.set(isoid);
+        }
 
         public synchronized void set(IBidRequestAction value) {
             super.set(value);
