@@ -31,6 +31,7 @@ import java.net.MalformedURLException;
         String targetURI = (String) config.get("target.uri");
         String pingTimeStr = (String) config.get("ping.time");
         String isoBusStr = (String) config.get("isoConfig");
+        String bidingId = (String) config.get("bidingId");
         int pingTime;
         try {
             pingTime = Integer.parseInt(pingTimeStr);
