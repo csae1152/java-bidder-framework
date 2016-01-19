@@ -40,7 +40,7 @@ public class DateFormatTest {
         Assert.assertEquals("connected", true);
     }
 
-    private boolean testException(String initialValue) throws ParseException {
+    private boolean testIsoAgroBusException(String initialValue) throws ParseException {
         try {
             IOUtils.parseDate(initialValue);
             return false;
