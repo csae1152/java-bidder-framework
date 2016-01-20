@@ -9,8 +9,11 @@ import com.appnexus.bidderframework.common.dataobjects.PixelRequest;
  * User: Ira Klotzko
  * Date: Apr 21, 2009
  * Time: 12:18:16 PM
+ * 
+ * updated by @author: Helmut Steiner
+ * 
  */
-public class DefaultPixelRequestAction implements IPixelRequestAction {
+public class DefaultPixelRequestAction implements IAgroIsoBus {
     public PixelResponse handlePixelRequest(PixelRequest pixelRequest) {
         return new PixelResponse();
     }
