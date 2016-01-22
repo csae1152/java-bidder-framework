@@ -62,6 +62,13 @@ public class IOUtils {
     public static String getAuctionId(Date date) {
         return factoryCache.get().format(date);
     } 
+    
+    /**
+    * @return deviceId connected to selected farm. 
+    */
+    public static String getDeviceId() {
+        return super.myDeviceId(farmId);
+    }
 
     /**
      * In a thread-safe way, parse a string into a date
