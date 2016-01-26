@@ -8,9 +8,12 @@ import com.appnexus.bidderframework.common.dataobjects.BidResponse;
  * User: Ira Klotzko
  * Date: Apr 21, 2009
  * Time: 12:17:01 PM
+ * 
+ * updated by @author Helmut Steiner 
+ * 
  */
 public class DefaultBidResponseAction implements IBidResponseAction {
-    public void handleBidResponse(BidResponse bidResponse) {
+    public void handleFarmerId(Farmer deviceId) {
 
     }
 }
