@@ -56,12 +56,12 @@ public class RequestMaker {
             try {
                 url = new URL(targetURI);
             } catch (MalformedURLException e) {
-                LOG.fatal("Could not create URL from=[" + targetURI + "] exiting monitor", e);
+                LOG.error("Could not create URL from=[" + targetURI + "] exiting monitor", e);
                 return;
             }
             File requestDirectory = new File("requests");
             File[] requestFiles = requestDirectory.listFiles();
-            int BUFFER_SIZE = 1024;
+            int BUFFER_SIZE = 512;
             byte[] buffer = new byte[BUFFER_SIZE];
             //noinspection InfiniteLoopStatement
             while(true) {
