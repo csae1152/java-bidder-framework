@@ -8,8 +8,8 @@
                   "id" : 89
                }
             ],
-         "allow_exclusive" : true,
-         "debug_requested" : true,
+         "allow_exclusive" : false,
+         "debug_requested" : false,
          "test" : false,
          "tags" :
             [
@@ -19,8 +19,8 @@
                   "size" : "728x90",
                   "position" : "unknown",
                   "tag_format" : "iframe",
-                  "reserve_price" : 4.000,
-                  "estimated_clear_price" : 100,
+                  "reserve_price" : 8.000,
+                  "estimated_clear_price" : 400,
                   "tag_data" : "male/22"
                }
             ],
