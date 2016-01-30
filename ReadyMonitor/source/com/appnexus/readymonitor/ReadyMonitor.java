@@ -46,10 +46,11 @@ import java.net.MalformedURLException;
         private final String targetURI;
         private final String auctionId;
 
-        private Pinger(int pingTime, String targetURI, String auctionId) {
+        private Pinger(int pingTime, String targetURI, String auctionId, String farmId) {
             this.pingTime = pingTime;
             this.targetURI = targetURI;
             this.auctionId = auctionId;
+            this.farmId = farmId;
         }
         public void run() {
             URL url;
