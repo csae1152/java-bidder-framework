@@ -22,8 +22,8 @@ public class TractorId {
 
     @Override
     public String toString() {
-        return "Member{" +
-                "memberID=" + memberID +
+        return "Tractor{" +
+                "tractorID=" + tractorID +
                 '}';
     }
 
