@@ -44,7 +44,7 @@ public class RequestHandlerServlet extends HttpServlet {
         ActionManager.getInstance().registerNotifyRequestActionClassName("com.appnexus.bidderactions.DefaultNotifyRequestAction");
         ActionManager.getInstance().registerPixelRequestActionClassName("com.appnexus.bidderactions.DefaultPixelRequestAction");
         ActionManager.getInstance().registerPixelResponseActionClassName("com.appnexus.bidderactions.DefaultPixelResponseAction");
-
+        ActionManager.getInstance().registerIsoAgroBus("com.isoagrobus");
     }
 
     @Override
