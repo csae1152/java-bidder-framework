@@ -12,13 +12,13 @@
     </target>
 
     <target  name="dist" 
-             description="dists or jars up the stuff in the framework and the example integrations like tomcat">
+             description="dists or jars up the stuff in the framework and the example integrations like jboss">
 
 	<ant antfile="build.xml" dir="common" target="dist" />
 	<copy todir="integration/jboss/lib">
 		<fileset dir="common/dist" />
 	</copy>
-	<ant antfile="build.xml" dir="integration/tomcat" target="war-up" />
+	<ant antfile="build.xml" dir="integration/jboss" target="war-up" />
 	<ant antfile="build.xml" dir="ReadyMonitor" target="dist" />
 	<ant antfile="build.xml" dir="AgroIsoBus" target="dist" />
 
@@ -26,7 +26,7 @@
 
     <target name="clean" description="calls clean on the common and integration directories">
 	<ant antfile="build.xml" dir="common" target="clean" />
-	<ant antfile="build.xml" dir="integration/tomcat" target="clean" />
+	<ant antfile="build.xml" dir="integration/jboss" target="clean" />
 	<ant antfile="build.xml" dir="ReadyMonitor" target="clean" />
 	<ant antfile="build.xml" dir="RequestMaker" target="clean" />
     </target>
