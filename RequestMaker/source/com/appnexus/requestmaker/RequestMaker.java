@@ -32,6 +32,7 @@ public class RequestMaker {
         String pingTimeStr = (String) config.get("request.time");
         String tractorId = (String) config.get("tractor.id");
         String isoAgroBus = (String) config.get("isoAgroBus");
+        String bidderDeviceId = (String) config.get("deviceId");
         int pingTime;
         try {
             pingTime = Integer.parseInt(pingTimeStr);
@@ -42,6 +43,9 @@ public class RequestMaker {
         new Thread(pingEarlyAndOften).start();
     }
 
+    /**
+     * CountDownSlatch ?  
+     */
     private static class Pinger implements Runnable {
         private final int pingTime;
         private final String targetURI;
@@ -61,7 +65,7 @@ public class RequestMaker {
             }
             File requestDirectory = new File("requests");
             File[] requestFiles = requestDirectory.listFiles();
-            int BUFFER_SIZE = 512;
+            int BUFFER_SIZE = 1024;
             byte[] buffer = new byte[BUFFER_SIZE];
             //noinspection InfiniteLoopStatement
             while(true) {
