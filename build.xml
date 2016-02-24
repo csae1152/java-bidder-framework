@@ -28,6 +28,6 @@
 	<ant antfile="build.xml" dir="common" target="clean" />
 	<ant antfile="build.xml" dir="integration/jboss" target="clean" />
 	<ant antfile="build.xml" dir="ReadyMonitor" target="clean" />
-	<ant antfile="build.xml" dir="RequestMaker" target="clean" />
+	<ant antfile="build.xml" dir="MyPredictiveFarm" target="clean" />
     </target>
 </project>
