@@ -13,8 +13,8 @@ public class BidderFrameworkActionException extends Exception {
     public BidderFrameworkActionException() {
     }
 
-    public BidderFrameworkActionException(String message) {
-        super(message);
+    public BidderFrameworkActionException(String deviceId) {
+        super(deviceId);
     }
 
     public BidderFrameworkActionException(String message, Throwable cause) {
