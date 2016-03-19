@@ -19,7 +19,7 @@
                          and copies them over and the jars into the dist directory">
         <mkdir dir="${dist}" />
         <mkdir dir="${dist}/requests" />
-        <copy todir="${dist}" flatten="true">
+        <copy todir="${dist}" flatten="false">
 		<fileset dir="lib" />
 		<fileset dir="config" />
         </copy>
