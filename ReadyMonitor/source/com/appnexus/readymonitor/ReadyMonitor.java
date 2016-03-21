@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
  public class ReadyMonitor {
 
     private static final Logger LOG = Logger.getLogger(ReadyMonitor.class);
-    private static final int DEFAULT_PING_TIME = 1000;
+    private static final int DEFAULT_PING_TIME = 10000;
 
     public static void main(String[] args) throws IOException {
         Properties config = new Properties();
