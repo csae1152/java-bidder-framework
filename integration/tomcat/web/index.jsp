@@ -8,13 +8,13 @@
 <%-- take this template as starting point --%
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head><title></title></head>
+  <head><title>MyPredictiveFarm</title></head>
   <body>
 
   <form action="sendInRequest">
 
       Please send in the request
-      <textarea rows="20" cols="20" id="json-in"></textarea>
+      <textarea rows="40" cols="10" id="json-in"></textarea>
 
   </form>
 
